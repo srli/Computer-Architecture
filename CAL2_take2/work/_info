@@ -1,0 +1,262 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dc:/CAL2_take2
+vAddressLatch
+!i10b 1
+Z1 V`JN@9S9cnhjKRR_L]QIcM3
+r1
+!s85 0
+31
+!s100 ?ZoF^XmA8QeR_VKJH^So22
+I9fVozj_8[eoGK:30M@6P=3
+Z2 dC:/CAL2_take2
+w1414994230
+8AddressLatch.v
+FAddressLatch.v
+L0 1
+Z3 OP;L;10.3c;59
+!s108 1414995872.103000
+!s107 datamemory.v|AddressLatch.v|tristatebuffer.v|inputconditioner.v|shiftregister.v|finitestatemachine.v|spimemory3.v|
+!s90 -reportprogress|300|-work|work|spimemory3.v|finitestatemachine.v|shiftregister.v|inputconditioner.v|tristatebuffer.v|AddressLatch.v|datamemory.v|
+!s101 -O0
+!i113 1
+Z4 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF -L infact -O0
+n@address@latch
+vdatamemory
+Z5 !s110 1415074923
+!i10b 1
+!s100 BUzPbR0LGbKNF4N]g?]242
+InAK8D1e1T]n[Yo`QHd5hh1
+R1
+R0
+w1415074726
+8datamemory.v
+Fdatamemory.v
+L0 2
+R3
+r1
+!s85 0
+31
+Z6 !s108 1415074923.796000
+Z7 !s107 datamemory.v|dff.v|tristatebuffer.v|inputconditioner.v|shiftregister.v|finitestatemachine.v|spimemory3.v|
+Z8 !s90 -reportprogress|300|-work|work|spimemory3.v|finitestatemachine.v|shiftregister.v|inputconditioner.v|tristatebuffer.v|dff.v|datamemory.v|
+!s101 -O0
+!i113 1
+R4
+vdff
+R5
+!i10b 1
+!s100 ]8[629K6kUF`hlYU@n?0:1
+IlG4gF13mgCCN86UfA^P@K0
+R1
+R0
+w1414994313
+8dff.v
+Fdff.v
+L0 1
+R3
+r1
+!s85 0
+31
+R6
+R7
+R8
+!s101 -O0
+!i113 1
+R4
+vfinitestatemachine
+R5
+!i10b 1
+!s100 fh7@FTOjKbRN6[A1T4h4Z3
+IX=MUjLAK?1WD2:Me0`BT01
+R1
+R0
+w1415074432
+Z9 8finitestatemachine.v
+Z10 Ffinitestatemachine.v
+L0 1
+R3
+r1
+!s85 0
+31
+R6
+R7
+R8
+!s101 -O0
+!i113 1
+R4
+vfinitestatemachine_breakable
+!i10b 1
+R1
+r1
+!s85 0
+31
+!s100 MGLYY>BaERm==_S7bQA5Q2
+Im7_m[`QdLLM;_zSTSA1S`3
+R2
+w1415052148
+R9
+R10
+L0 245
+R3
+!s108 1415052148.536000
+R7
+R8
+!s101 -O0
+!i113 1
+R4
+vinputconditioner
+R5
+!i10b 1
+!s100 TRNk@0ESch0Q6FaaGNGWo3
+IbfA=RV<JlFHz]U9_mbgkG1
+R1
+R0
+w1414997620
+Z11 8inputconditioner.v
+Z12 Finputconditioner.v
+L0 1
+R3
+r1
+!s85 0
+31
+R6
+R7
+R8
+!s101 -O0
+!i113 1
+R4
+vshiftregister
+R5
+!i10b 1
+!s100 SR_g=CVhJ`fnHdUALZcWo1
+I79YH3_:=FDOi8LSoHYAF:3
+R1
+R0
+w1414997649
+Z13 8shiftregister.v
+Z14 Fshiftregister.v
+L0 1
+R3
+r1
+!s85 0
+31
+R6
+R7
+R8
+!s101 -O0
+!i113 1
+R4
+vspiMemory
+R5
+!i10b 1
+!s100 j7IGN<IUP[Xal9Afc7_6k0
+IIP]`N]TCYZ_[XS39L>COj2
+R1
+R0
+Z15 w1415074922
+Z16 8spimemory3.v
+Z17 Fspimemory3.v
+L0 1
+R3
+r1
+!s85 0
+31
+R6
+R7
+R8
+!s101 -O0
+!i113 1
+R4
+nspi@memory
+vtestConditioner
+!i10b 1
+R1
+r1
+!s85 0
+31
+!s100 h[@NPJ7kGQAK:07dKB]L?2
+INjT6:MTbn7TAddK[Vh;@G3
+R2
+w1414994592
+R11
+R12
+L0 40
+R3
+Z18 !s108 1414997347.165000
+R7
+R8
+!s101 -O0
+!i113 1
+R4
+ntest@conditioner
+vtestshiftregister
+!i10b 1
+R1
+r1
+!s85 0
+31
+!s100 Z4DTbY14HmD@6ANm;kSHa0
+I`^c6cXD8Th?l<>;E^?5zO3
+R2
+w1414995435
+R13
+R14
+L0 29
+R3
+R18
+R7
+R8
+!s101 -O0
+!i113 1
+R4
+vtestSPIMemory
+R5
+!i10b 1
+!s100 ;RMB]Kich`OLHD]>m[AOQ3
+IY5m8JJ5bFeHIglW<^jF?B3
+R1
+R0
+R15
+R16
+R17
+L0 58
+R3
+r1
+!s85 0
+31
+R6
+R7
+R8
+!s101 -O0
+!i113 1
+R4
+ntest@s@p@i@memory
+vtristatebuffer
+R5
+!i10b 1
+!s100 e<3b2o;5]eG79GBge2ODo1
+IEhM]Po4OG[`QUzjJH6Fbz2
+R1
+R0
+w1415074917
+8tristatebuffer.v
+Ftristatebuffer.v
+L0 1
+R3
+r1
+!s85 0
+31
+R6
+R7
+R8
+!s101 -O0
+!i113 1
+R4

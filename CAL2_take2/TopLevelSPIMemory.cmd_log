@@ -1,0 +1,6 @@
+xst -intstyle ise -ifn "C:/CAL2_take2/TopLevelSPIMemory.xst" -ofn "C:/CAL2_take2/TopLevelSPIMemory.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s1000-ft256-5 TopLevelSPIMemory.ngc TopLevelSPIMemory.ngd  
+map -intstyle ise -p xc3s1000-ft256-5 -cm area -ir off -pr off -c 100 -o TopLevelSPIMemory_map.ncd TopLevelSPIMemory.ngd TopLevelSPIMemory.pcf 
+par -w -intstyle ise -ol high -t 1 TopLevelSPIMemory_map.ncd TopLevelSPIMemory.ncd TopLevelSPIMemory.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml TopLevelSPIMemory.twx TopLevelSPIMemory.ncd -o TopLevelSPIMemory.twr TopLevelSPIMemory.pcf 
+bitgen -intstyle ise -f TopLevelSPIMemory.ut TopLevelSPIMemory.ncd 

@@ -1,0 +1,81 @@
+Release 14.7 Drc P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Mon Nov 03 00:05:34 2014
+
+drc -z mp2.ncd mp2.pcf
+
+WARNING:PhysDesignRules:812 - Dangling pin <DOA8> on
+   block:<spi_mem_bringup/spimemory/data_mem/Mram_memoryvals1.A>:<RAMB16_RAMB16A
+   >.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA9> on
+   block:<spi_mem_bringup/spimemory/data_mem/Mram_memoryvals1.A>:<RAMB16_RAMB16A
+   >.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA10> on
+   block:<spi_mem_bringup/spimemory/data_mem/Mram_memoryvals1.A>:<RAMB16_RAMB16A
+   >.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA11> on
+   block:<spi_mem_bringup/spimemory/data_mem/Mram_memoryvals1.A>:<RAMB16_RAMB16A
+   >.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA12> on
+   block:<spi_mem_bringup/spimemory/data_mem/Mram_memoryvals1.A>:<RAMB16_RAMB16A
+   >.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA13> on
+   block:<spi_mem_bringup/spimemory/data_mem/Mram_memoryvals1.A>:<RAMB16_RAMB16A
+   >.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA14> on
+   block:<spi_mem_bringup/spimemory/data_mem/Mram_memoryvals1.A>:<RAMB16_RAMB16A
+   >.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA15> on
+   block:<spi_mem_bringup/spimemory/data_mem/Mram_memoryvals1.A>:<RAMB16_RAMB16A
+   >.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA16> on
+   block:<spi_mem_bringup/spimemory/data_mem/Mram_memoryvals1.A>:<RAMB16_RAMB16A
+   >.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA17> on
+   block:<spi_mem_bringup/spimemory/data_mem/Mram_memoryvals1.A>:<RAMB16_RAMB16A
+   >.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA18> on
+   block:<spi_mem_bringup/spimemory/data_mem/Mram_memoryvals1.A>:<RAMB16_RAMB16A
+   >.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA19> on
+   block:<spi_mem_bringup/spimemory/data_mem/Mram_memoryvals1.A>:<RAMB16_RAMB16A
+   >.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA20> on
+   block:<spi_mem_bringup/spimemory/data_mem/Mram_memoryvals1.A>:<RAMB16_RAMB16A
+   >.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA21> on
+   block:<spi_mem_bringup/spimemory/data_mem/Mram_memoryvals1.A>:<RAMB16_RAMB16A
+   >.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA22> on
+   block:<spi_mem_bringup/spimemory/data_mem/Mram_memoryvals1.A>:<RAMB16_RAMB16A
+   >.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA23> on
+   block:<spi_mem_bringup/spimemory/data_mem/Mram_memoryvals1.A>:<RAMB16_RAMB16A
+   >.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA24> on
+   block:<spi_mem_bringup/spimemory/data_mem/Mram_memoryvals1.A>:<RAMB16_RAMB16A
+   >.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA25> on
+   block:<spi_mem_bringup/spimemory/data_mem/Mram_memoryvals1.A>:<RAMB16_RAMB16A
+   >.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA26> on
+   block:<spi_mem_bringup/spimemory/data_mem/Mram_memoryvals1.A>:<RAMB16_RAMB16A
+   >.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA27> on
+   block:<spi_mem_bringup/spimemory/data_mem/Mram_memoryvals1.A>:<RAMB16_RAMB16A
+   >.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA28> on
+   block:<spi_mem_bringup/spimemory/data_mem/Mram_memoryvals1.A>:<RAMB16_RAMB16A
+   >.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA29> on
+   block:<spi_mem_bringup/spimemory/data_mem/Mram_memoryvals1.A>:<RAMB16_RAMB16A
+   >.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA30> on
+   block:<spi_mem_bringup/spimemory/data_mem/Mram_memoryvals1.A>:<RAMB16_RAMB16A
+   >.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA31> on
+   block:<spi_mem_bringup/spimemory/data_mem/Mram_memoryvals1.A>:<RAMB16_RAMB16A
+   >.
+DRC detected 0 errors and 24 warnings.  Please see the previously displayed
+individual error or warning messages for more details.

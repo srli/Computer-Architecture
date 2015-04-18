@@ -1,0 +1,3 @@
+verilog work "shiftregister.v"
+verilog work "inputconditioner.v"
+verilog work "TopLevelShiftRegisterBringup.v"

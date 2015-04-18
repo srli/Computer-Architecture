@@ -1,0 +1,223 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dc:/CAL2
+vAddressLatch
+Z1 !s110 1414993835
+!i10b 1
+!s100 D<L1aiLOR8XC[XRFC_MMB2
+I`XWzWg3gBSOZmIPMCnV5z0
+Z2 V`JN@9S9cnhjKRR_L]QIcM3
+R0
+Z3 w1414993829
+Z4 8spimemory2.v
+Z5 Fspimemory2.v
+L0 129
+Z6 OP;L;10.3c;59
+r1
+!s85 0
+31
+Z7 !s108 1414993835.185000
+Z8 !s107 spimemory2.v|
+Z9 !s90 -reportprogress|300|-work|work|spimemory2.v|
+!s101 -O0
+!i113 1
+Z10 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF -L infact -O0
+n@address@latch
+vdatamemory
+R1
+!i10b 1
+!s100 54[T;lkE2ZL=MeIYQDUm61
+ImXQ0zggf]BZVlJ19QPd_J1
+R2
+R0
+R3
+R4
+R5
+L0 147
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!s101 -O0
+!i113 1
+R10
+vdff
+R1
+!i10b 1
+!s100 =J=N>A_7:1L5KlKjBX>d_2
+IY@>?Vlf`h=b_3[4eGoU`e0
+R2
+R0
+R3
+R4
+R5
+L0 174
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!s101 -O0
+!i113 1
+R10
+vfinitestatemachine
+R1
+!i10b 1
+!s100 RXEUMk`0ZijKVl:6CUlzn3
+IaHIOfGZ[W[DdlDn2[00[o2
+R2
+R0
+R3
+R4
+R5
+L0 187
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!s101 -O0
+!i113 1
+R10
+vinputconditioner
+R1
+!i10b 1
+!s100 V5]:XUFn_FEhANZ=SJlzD3
+Il8lJg0R1MlIT9_RjW194S3
+R2
+R0
+R3
+R4
+R5
+L0 91
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!s101 -O0
+!i113 1
+R10
+vshiftregister
+Z11 !s110 1415076938
+!i10b 1
+!s100 ^9o>T;R80`1Lzii??EBXK0
+Id>2]<C?49S<coJX:7X4h]1
+R2
+Z12 dC:/CAL2
+Z13 w1415076627
+Z14 8shiftregister.v
+Z15 Fshiftregister.v
+L0 1
+R6
+r1
+!s85 0
+31
+Z16 !s108 1415076938.123000
+Z17 !s107 shiftregister.v|
+Z18 !s90 -reportprogress|300|-work|work|shiftregister.v|
+!s101 -O0
+!i113 1
+R10
+vspiMemory
+R1
+!i10b 1
+!s100 fh:inc7G>SK=Pfa_IO6nI0
+I_`5Fo7SiiGlK:nhMN;^J>3
+R2
+R0
+R3
+R4
+R5
+L0 3
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!s101 -O0
+!i113 1
+R10
+nspi@memory
+vtestshiftregister
+R11
+!i10b 1
+!s100 US4gJiKU6BE2b^fhA9mD70
+I<_:eaTM@aaSK;LgOR:zTA0
+R2
+R12
+R13
+R14
+R15
+L0 31
+R6
+r1
+!s85 0
+31
+R16
+R17
+R18
+!s101 -O0
+!i113 1
+R10
+vtestSPI
+R1
+!i10b 1
+!s100 LH<BS`1<?_6R=GfKB7@A>1
+Ih<BQPSZzmoo<[=[VGZU]61
+R2
+R0
+R3
+R4
+R5
+L0 348
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!s101 -O0
+!i113 1
+R10
+ntest@s@p@i
+vtristatebuffer
+R1
+!i10b 1
+!s100 idgNhHeLGzUkh2czBem3R3
+Ik45bKhI@Mjcc`_j:4_hDA3
+R2
+R0
+R3
+R4
+R5
+L0 332
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!s101 -O0
+!i113 1
+R10

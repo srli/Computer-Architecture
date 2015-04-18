@@ -1,0 +1,10 @@
+MO testSPIMemory NULL ../CAL2_take2/spimemory1000.v vlg61/test_s_p_i_memory.bin 1415222390
+MO dff NULL dff.v vlg28/dff.bin 1415222390
+MO tristatebuffer NULL tristatebuffer.v vlg2A/tristatebuffer.bin 1415222390
+MO mp2 NULL mp2.v vlg07/mp2.bin 1415222390
+MO shiftregister NULL shiftregister.v vlg27/shiftregister.bin 1415222390
+MO inputconditioner NULL inputconditioner.v vlg0E/inputconditioner.bin 1415222390
+MO spiMemory NULL ../CAL2_take2/spimemory1000.v vlg3D/spi_memory.bin 1415222390
+MO finitestatemachine NULL finitestatemachine.v vlg0D/finitestatemachine.bin 1415222390
+MO AddressLatch NULL AddressLatch.v vlg36/_address_latch.bin 1415222390
+MO datamemory NULL ../CAL2_take2/datamemory.v vlg6B/datamemory.bin 1415222390

@@ -1,0 +1,9 @@
+MO adder NULL ../ALU.v vlg54/adder.bin 1412900574
+MO adder32Bit NULL ../ALU.v vlg44/adder32_bit.bin 1412900574
+MO orgate NULL ../ALU.v vlg3A/orgate.bin 1412900574
+MO xorgate NULL ../ALU.v vlg72/xorgate.bin 1412900574
+MO slt NULL ../ALU.v vlg4B/slt.bin 1412900574
+MO structuralMultiplexer NULL ../ALU.v vlg7C/structural_multiplexer.bin 1412900574
+MO LUT NULL ../ALU.v vlg69/_l_u_t.bin 1412900574
+MO andgate NULL ../ALU.v vlg40/andgate.bin 1412900574
+MO ALU NULL ../ALU.v vlg2A/_a_l_u.bin 1412900574

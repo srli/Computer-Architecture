@@ -1,0 +1,5 @@
+verilog work "shiftregister.v"
+verilog work "inputconditioner.v"
+verilog work "spimemory.v"
+verilog work "TopLevelSPIMemory.v"
+verilog work "mp2.v"

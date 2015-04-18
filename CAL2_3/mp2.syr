@@ -1,0 +1,627 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Reading design: mp2.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "mp2.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "mp2"
+Output Format                      : NGC
+Target Device                      : xc3s1000-5-ft256
+
+---- Source Options
+Top Module Name                    : mp2
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 8
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "../CAL2_take2/datamemory.v" in library work
+Compiling verilog file "tristatebuffer.v" in library work
+Module <datamemory> compiled
+Compiling verilog file "shiftregister.v" in library work
+Module <tristatebuffer> compiled
+Compiling verilog file "inputconditioner.v" in library work
+Module <shiftregister> compiled
+Compiling verilog file "finitestatemachine.v" in library work
+Module <inputconditioner> compiled
+Compiling verilog file "dff.v" in library work
+Module <finitestatemachine> compiled
+Compiling verilog file "AddressLatch.v" in library work
+Module <dff> compiled
+Compiling verilog file "../CAL2_take2/spimemory1000.v" in library work
+Module <AddressLatch> compiled
+Module <spiMemory> compiled
+Compiling verilog file "mp2.v" in library work
+Module <testSPIMemory> compiled
+Module <mp2> compiled
+No errors in compilation
+Analysis of file <"mp2.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <mp2> in library <work>.
+
+Analyzing hierarchy for module <spiMemory> in library <work>.
+
+Analyzing hierarchy for module <inputconditioner> in library <work> with parameters.
+	counterwidth = "00000000000000000000000000000011"
+	waittime = "00000000000000000000000000000011"
+
+Analyzing hierarchy for module <AddressLatch> in library <work>.
+
+Analyzing hierarchy for module <datamemory> in library <work> with parameters.
+	addresswidth = "00000000000000000000000000001000"
+	depth = "00000000000000000000000100000000"
+	width = "00000000000000000000000000001000"
+
+Analyzing hierarchy for module <shiftregister> in library <work> with parameters.
+	width = "00000000000000000000000000001000"
+
+Analyzing hierarchy for module <dff> in library <work>.
+
+Analyzing hierarchy for module <tristatebuffer> in library <work>.
+
+Analyzing hierarchy for module <finitestatemachine> in library <work> with parameters.
+	DONE = "00000000000000000000000000000111"
+	GET = "00000000000000000000000000000000"
+	GOT = "00000000000000000000000000000001"
+	READ = "00000000000000000000000000000010"
+	READ2 = "00000000000000000000000000000011"
+	READ3 = "00000000000000000000000000000100"
+	WRITE = "00000000000000000000000000000101"
+	WRITE2 = "00000000000000000000000000000110"
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <mp2>.
+Module <mp2> is correct for synthesis.
+ 
+Analyzing module <spiMemory> in library <work>.
+Module <spiMemory> is correct for synthesis.
+ 
+Analyzing module <inputconditioner> in library <work>.
+	counterwidth = 32'sb00000000000000000000000000000011
+	waittime = 32'sb00000000000000000000000000000011
+Module <inputconditioner> is correct for synthesis.
+ 
+Analyzing module <AddressLatch> in library <work>.
+Module <AddressLatch> is correct for synthesis.
+ 
+Analyzing module <datamemory> in library <work>.
+	addresswidth = 32'sb00000000000000000000000000001000
+	depth = 32'sb00000000000000000000000100000000
+	width = 32'sb00000000000000000000000000001000
+INFO:Xst:1607 - Contents of array <memory> may be accessed with an index that does not cover the full array size.
+INFO:Xst:1607 - Contents of array <memory> may be accessed with an index that does not cover the full array size.
+Module <datamemory> is correct for synthesis.
+ 
+Analyzing module <shiftregister> in library <work>.
+	width = 32'sb00000000000000000000000000001000
+Module <shiftregister> is correct for synthesis.
+ 
+Analyzing module <dff> in library <work>.
+Module <dff> is correct for synthesis.
+ 
+Analyzing module <tristatebuffer> in library <work>.
+Module <tristatebuffer> is correct for synthesis.
+ 
+Analyzing module <finitestatemachine> in library <work>.
+	DONE = 32'sb00000000000000000000000000000111
+	GET = 32'sb00000000000000000000000000000000
+	GOT = 32'sb00000000000000000000000000000001
+	READ = 32'sb00000000000000000000000000000010
+	READ2 = 32'sb00000000000000000000000000000011
+	READ3 = 32'sb00000000000000000000000000000100
+	WRITE = 32'sb00000000000000000000000000000101
+	WRITE2 = 32'sb00000000000000000000000000000110
+Module <finitestatemachine> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <inputconditioner>.
+    Related source file is "inputconditioner.v".
+    Found 1-bit register for signal <negativeedge>.
+    Found 1-bit register for signal <positiveedge>.
+    Found 1-bit register for signal <conditioned>.
+    Found 3-bit up counter for signal <counter>.
+    Found 1-bit xor2 for signal <positiveedge$xor0000> created at line 15.
+    Found 1-bit register for signal <synchronizer0>.
+    Found 1-bit register for signal <synchronizer1>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   5 D-type flip-flop(s).
+Unit <inputconditioner> synthesized.
+
+
+Synthesizing Unit <AddressLatch>.
+    Related source file is "AddressLatch.v".
+    Found 8-bit register for signal <address>.
+    Summary:
+	inferred   8 D-type flip-flop(s).
+Unit <AddressLatch> synthesized.
+
+
+Synthesizing Unit <datamemory>.
+    Related source file is "../CAL2_take2/datamemory.v".
+WARNING:Xst:647 - Input <addressr<0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:646 - Signal <tempreg1> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 128x8-bit single-port RAM <Mram_memory> for signal <memory>.
+    Found 8-bit register for signal <dataOut>.
+    Summary:
+	inferred   1 RAM(s).
+	inferred   8 D-type flip-flop(s).
+Unit <datamemory> synthesized.
+
+
+Synthesizing Unit <shiftregister>.
+    Related source file is "shiftregister.v".
+    Found 8-bit register for signal <shiftregistermem>.
+    Summary:
+	inferred   8 D-type flip-flop(s).
+Unit <shiftregister> synthesized.
+
+
+Synthesizing Unit <dff>.
+    Related source file is "dff.v".
+    Found 1-bit register for signal <q>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+Unit <dff> synthesized.
+
+
+Synthesizing Unit <tristatebuffer>.
+    Related source file is "tristatebuffer.v".
+    Found 1-bit tristate buffer for signal <tri_output>.
+    Found 1-bit register for signal <Mtridata_tri_output>.
+    Found 1-bit register for signal <Mtrien_tri_output>.
+    Summary:
+	inferred   2 D-type flip-flop(s).
+	inferred   1 Tristate(s).
+Unit <tristatebuffer> synthesized.
+
+
+Synthesizing Unit <finitestatemachine>.
+    Related source file is "finitestatemachine.v".
+    Found 1-bit register for signal <miso_buff>.
+    Found 1-bit register for signal <ADDR_we>.
+    Found 1-bit register for signal <SR_we>.
+    Found 1-bit register for signal <DM_we>.
+    Found 4-bit register for signal <count>.
+    Found 4-bit comparator less for signal <count$cmp_lt0000> created at line 83.
+    Found 4-bit adder for signal <old_count_1$addsub0000> created at line 19.
+    Found 4-bit register for signal <state>.
+    Summary:
+	inferred  12 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+Unit <finitestatemachine> synthesized.
+
+
+Synthesizing Unit <spiMemory>.
+    Related source file is "../CAL2_take2/spimemory1000.v".
+WARNING:Xst:647 - Input <faultinjector_pin> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1305 - Output <leds> is never assigned. Tied to value 00000000.
+WARNING:Xst:646 - Signal <sclk_cond> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <mosi_pos> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <mosi_neg> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <cs_pos> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <cs_neg> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <spiMemory> synthesized.
+
+
+Synthesizing Unit <mp2>.
+    Related source file is "mp2.v".
+WARNING:Xst:647 - Input <btn> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <sw<7:1>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+Unit <mp2> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 128x8-bit single-port RAM                             : 1
+# Adders/Subtractors                                   : 1
+ 4-bit adder                                           : 1
+# Counters                                             : 3
+ 3-bit up counter                                      : 3
+# Registers                                            : 34
+ 1-bit register                                        : 30
+ 4-bit register                                        : 2
+ 8-bit register                                        : 2
+# Comparators                                          : 1
+ 4-bit comparator less                                 : 1
+# Tristates                                            : 1
+ 1-bit tristate buffer                                 : 1
+# Xors                                                 : 3
+ 1-bit xor2                                            : 3
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:1293 - FF/Latch <state_3> has a constant value of 0 in block <fsm>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <address_0> of sequential type is unconnected in block <addrlatch>.
+
+Synthesizing (advanced) Unit <spiMemory>.
+INFO:Xst:3226 - The RAM <datamem/Mram_memory> will be implemented as a BLOCK RAM, absorbing the following register(s): <datamem/dataOut>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 128-word x 8-bit                    |          |
+    |     mode           | read-first                          |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <dm_we>         | high     |
+    |     addrA          | connected to signal <address>       |          |
+    |     diA            | connected to signal <sr_pout>       |          |
+    |     doA            | connected to signal <dm_dout>       |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <spiMemory> synthesized (advanced).
+WARNING:Xst:2677 - Node <addrlatch/address_0> of sequential type is unconnected in block <spiMemory>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 128x8-bit single-port block RAM                       : 1
+# Adders/Subtractors                                   : 1
+ 4-bit adder                                           : 1
+# Counters                                             : 3
+ 3-bit up counter                                      : 3
+# Registers                                            : 45
+ Flip-Flops                                            : 45
+# Comparators                                          : 1
+ 4-bit comparator less                                 : 1
+# Xors                                                 : 3
+ 1-bit xor2                                            : 3
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1293 - FF/Latch <state_3> has a constant value of 0 in block <finitestatemachine>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <mp2> ...
+
+Optimizing unit <inputconditioner> ...
+
+Optimizing unit <shiftregister> ...
+
+Optimizing unit <finitestatemachine> ...
+WARNING:Xst:2677 - Node <spimembringup/mosi/negativeedge> of sequential type is unconnected in block <mp2>.
+WARNING:Xst:2677 - Node <spimembringup/mosi/positiveedge> of sequential type is unconnected in block <mp2>.
+WARNING:Xst:2677 - Node <spimembringup/cs/negativeedge> of sequential type is unconnected in block <mp2>.
+WARNING:Xst:2677 - Node <spimembringup/cs/positiveedge> of sequential type is unconnected in block <mp2>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block mp2, actual ratio is 0.
+
+Final Macro Processing ...
+
+Processing Unit <mp2> :
+	Found 2-bit shift register for signal <spimembringup/mosi/synchronizer1>.
+	Found 2-bit shift register for signal <spimembringup/sclk/synchronizer1>.
+	Found 2-bit shift register for signal <spimembringup/cs/synchronizer1>.
+Unit <mp2> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 43
+ Flip-Flops                                            : 43
+# Shift Registers                                      : 3
+ 2-bit shift register                                  : 3
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : mp2.ngr
+Top Level Output File Name         : mp2
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 29
+
+Cell Usage :
+# BELS                             : 64
+#      GND                         : 2
+#      INV                         : 3
+#      LUT2                        : 6
+#      LUT3                        : 27
+#      LUT3_D                      : 6
+#      LUT4                        : 15
+#      LUT4_D                      : 2
+#      LUT4_L                      : 1
+#      MUXF5                       : 1
+#      VCC                         : 1
+# FlipFlops/Latches                : 46
+#      FD                          : 6
+#      FDE                         : 22
+#      FDR                         : 16
+#      FDRE                        : 2
+# RAMS                             : 1
+#      RAMB16                      : 1
+# Shift Registers                  : 3
+#      SRL16                       : 3
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 16
+#      IBUF                        : 4
+#      OBUF                        : 11
+#      OBUFT                       : 1
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s1000ft256-5 
+
+ Number of Slices:                       37  out of   7680     0%  
+ Number of Slice Flip Flops:             46  out of  15360     0%  
+ Number of 4 input LUTs:                 63  out of  15360     0%  
+    Number used as logic:                60
+    Number used as Shift registers:       3
+ Number of IOs:                          29
+ Number of bonded IOBs:                  17  out of    173     9%  
+ Number of BRAMs:                         1  out of     24     4%  
+ Number of GCLKs:                         1  out of      8    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 50    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 5.968ns (Maximum Frequency: 167.555MHz)
+   Minimum input arrival time before clock: 1.842ns
+   Maximum output required time after clock: 6.427ns
+   Maximum combinational path delay: 6.369ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 5.968ns (frequency: 167.555MHz)
+  Total number of paths / destination ports: 344 / 99
+-------------------------------------------------------------------------
+Delay:               5.968ns (Levels of Logic = 3)
+  Source:            spimembringup/fsm/count_2 (FF)
+  Destination:       spimembringup/fsm/state_2 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: spimembringup/fsm/count_2 to spimembringup/fsm/state_2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              3   0.626   1.066  spimembringup/fsm/count_2 (spimembringup/fsm/count_2)
+     LUT4:I0->O            4   0.479   0.779  spimembringup/fsm/count_cmp_eq0006_SW0 (N11)
+     MUXF5:S->O            1   0.540   0.704  spimembringup/fsm/count_cmp_eq0006_SW2 (N16)
+     LUT4:I3->O            3   0.479   0.771  spimembringup/fsm/state_not00021 (spimembringup/fsm/state_not0002)
+     FDE:CE                    0.524          spimembringup/fsm/state_0
+    ----------------------------------------
+    Total                      5.968ns (2.648ns logic, 3.320ns route)
+                                       (44.4% logic, 55.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 3 / 3
+-------------------------------------------------------------------------
+Offset:              1.842ns (Levels of Logic = 1)
+  Source:            gpioBank2<1> (PAD)
+  Destination:       spimembringup/mosi/Mshreg_synchronizer1 (FF)
+  Destination Clock: clk rising
+
+  Data Path: gpioBank2<1> to spimembringup/mosi/Mshreg_synchronizer1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   0.715   0.745  gpioBank2_1_IBUF (gpioBank1_1_OBUF)
+     SRL16:D                   0.382          spimembringup/mosi/Mshreg_synchronizer1
+    ----------------------------------------
+    Total                      1.842ns (1.097ns logic, 0.745ns route)
+                                       (59.5% logic, 40.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 2 / 1
+-------------------------------------------------------------------------
+Offset:              6.427ns (Levels of Logic = 1)
+  Source:            spimembringup/outbuff/Mtrien_tri_output (FF)
+  Destination:       gpioBank1<0> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: spimembringup/outbuff/Mtrien_tri_output to gpioBank1<0>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              1   0.626   0.681  spimembringup/outbuff/Mtrien_tri_output (spimembringup/outbuff/Mtrien_tri_output)
+     OBUFT:T->O                5.120          gpioBank1_0_OBUFT (gpioBank1<0>)
+    ----------------------------------------
+    Total                      6.427ns (5.746ns logic, 0.681ns route)
+                                       (89.4% logic, 10.6% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 3 / 3
+-------------------------------------------------------------------------
+Delay:               6.369ns (Levels of Logic = 2)
+  Source:            gpioBank2<2> (PAD)
+  Destination:       gpioBank1<2> (PAD)
+
+  Data Path: gpioBank2<2> to gpioBank1<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   0.715   0.745  gpioBank2_2_IBUF (gpioBank1_2_OBUF)
+     OBUF:I->O                 4.909          gpioBank1_2_OBUF (gpioBank1<2>)
+    ----------------------------------------
+    Total                      6.369ns (5.624ns logic, 0.745ns route)
+                                       (88.3% logic, 11.7% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 4.94 secs
+ 
+--> 
+
+Total memory usage is 263232 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   19 (   0 filtered)
+Number of infos    :    3 (   0 filtered)
+

@@ -1,0 +1,474 @@
+
+
+module spiMemory(clk, sclk_pin, cs_pin, miso_pin, mosi_pin, leds, faultinjector_pin);
+input clk;
+input sclk_pin;
+input cs_pin;
+output miso_pin;
+input mosi_pin;
+output [7:0] leds;
+input faultinjector_pin;
+//output wire miso_buffout;
+
+wire mosi_conditioned, mosi_positiveedge, mosi_negativeedge;
+wire sclk_conditioned, sclk_positiveedge, sclk_negativeedge;
+wire cs_conditioned, cs_positiveedge, cs_negativeedge;
+wire fault_conditioned, fault_positiveedge, fault_negativeedge;
+
+wire SR_we;
+wire ADDR_we;
+wire DM_we;
+
+wire[7:0] d_outshiftreg;
+wire serialDataOut;
+wire[7:0] parallelDataOut;
+
+wire[7:0] address;
+wire[7:0] d_in, q;
+wire[7:0] d_outdatamem;
+
+wire dff_out;
+wire tri_output;
+
+inputconditioner mosi_cond (clk, mosi_pin, mosi_conditioned, mosi_positiveedge, mosi_negativeedge);
+inputconditioner sclk_cond (clk, sclk_pin, sclk_conditioned, sclk_positiveedge, sclk_negativeedge);
+inputconditioner cs_cond (clk, cs_pin, cs_conditioned, cs_positiveedge, cs_negativeedge);
+inputconditioner fault_cond (clk, fault_pin, fault_conditioned, fault_positiveedge, fault_negativeedge);
+
+//finitestatemachine(miso_buff, DM_we, ADDR_we, SR_we, cs_conditioned, shiftregp, sclk_positiveedge);
+//finitestatemachine fsm (miso_buff, DM_we, ADDR_we, SR_we, cs_conditioned, leds[0], sclk_positiveedge);
+finitestatemachine fsm (miso_buff, DM_we, ADDR_we, SR_we, cs_conditioned, parallelDataOut[0], sclk_positiveedge, leds);
+
+
+//shiftregister(clk, peripheralClkEdge, parallelLoad, parallelDataIn, serialDataIn, parallelDataOut, serialDataOut, faultinjector);
+//shiftregister spi_shiftreg (clk, sclk_positiveedge, SR_we, d_outdatamem, mosi_conditioned, leds, serialDataOut, fault_positiveedge);
+shiftregister spi_shiftreg (clk, sclk_positiveedge, SR_we, d_outdatamem, mosi_conditioned, parallelDataOut, serialDataOut, fault_positiveedge);
+
+//AddressLatch(address, parallel_in, clk, wrenable);
+//AddressLatch addr_latch (address, leds, clk, ADDR_we);
+AddressLatch addr_latch (address, parallelDataOut, clk, ADDR_we);
+
+//datamemory(d_out, d_in, q, clk, DM_we);
+//datamemory data_mem (d_outdatamem, leds, address, clk, DM_we); // TO DO change leds to parallel out aop
+datamemory data_mem (d_outdatamem, parallelDataOut, address, clk, DM_we); // TO DO change leds to parallel out aop
+
+//dff(q, d, ce, clk);
+dff dff_thing (dff_out, serialDataOut, sclk_negativeedge, clk);
+
+//tristatebuffer(tri_output, tri_enable, tri_input);
+//assign miso_pin = 1; 
+tristatebuffer tsb (miso_pin, miso_buff, dff_out);
+assign miso_buffout = miso_buff;
+endmodule
+module shiftregister(clk, peripheralClkEdge, parallelLoad, parallelDataIn, serialDataIn, parallelDataOut, serialDataOut, faultinjector);
+parameter width = 8;
+input               clk;
+input               peripheralClkEdge; //Edge indicator
+input               parallelLoad;
+output wire [width-1:0]   parallelDataOut;
+output              serialDataOut;
+input[width-1:0]    parallelDataIn;
+input               serialDataIn;
+input					  faultinjector;
+
+reg[width-1:0]      shiftregistermem;
+
+always @(posedge clk) begin
+	if (parallelLoad == 1) begin
+		shiftregistermem = parallelDataIn;
+	end
+	else if (parallelLoad == 0 && peripheralClkEdge == 1 && faultinjector == 0) begin
+		shiftregistermem = shiftregistermem << 1;
+		shiftregistermem[0] = serialDataIn;
+	end
+end
+
+assign parallelDataOut = shiftregistermem;
+assign serialDataOut = parallelDataOut[7];
+
+endmodule
+
+module inputconditioner(clk, noisysignal, conditioned, positiveedge, negativeedge);
+output reg conditioned = 0;
+output reg positiveedge = 0;	// output wire positiveedge
+output reg negativeedge = 0;	// output wire negativeedge
+input clk, noisysignal;
+
+parameter counterwidth = 3;
+parameter waittime = 3;
+
+reg[counterwidth-1:0] counter =0;
+reg synchronizer0 = 0;
+reg synchronizer1 = 0;
+
+always @(posedge clk ) begin
+	if(conditioned == synchronizer1) begin
+		counter <= 0;
+		positiveedge <= 0;
+		negativeedge <= 0;
+	end
+	else begin
+		if( counter == waittime) begin
+			counter <= 0;
+			if(synchronizer1 > conditioned) begin
+				positiveedge <= 1;
+			end
+			else begin
+				negativeedge <= 1;
+			end
+
+			conditioned <= synchronizer1;
+		end
+		else
+			counter <= counter+1;
+	end
+	synchronizer1 = synchronizer0;
+	synchronizer0 = noisysignal;
+end
+endmodule
+module AddressLatch(address, parallel_in, clk, wrenable); 
+//outputs 
+output reg[7:0] address;
+
+//inputs 
+input clk; 
+input wrenable; 
+input [7:0] parallel_in; //either address or data
+
+//Makes sure that we alternate between storing the data address and inputting the data
+always @(posedge clk)begin
+	if (wrenable)begin
+		address <= parallel_in;
+	end
+end
+endmodule 
+
+
+module datamemory(d_out, d_in, q, clk, DM_we);
+input[7:0] d_in;
+input[7:0] q;
+input clk;
+input DM_we;
+
+output reg[7:0] d_out;
+
+reg[6:0] addr;
+reg[127:0] memoryvals[7:0]; //Make 128 bits by 8 bits (128 bytes) to hold all the memory
+
+always @(posedge clk) begin
+	addr = q[7:1]; //set address equal to first 7 bits of out of address latch. LSB isn't accounted for
+	if (DM_we == 1) begin //if our FSM says that we're writing, assigns bits at address equal to d_in
+		memoryvals[addr] = d_in; 
+		//d_out <= z;
+	end 
+	else if (DM_we == 0) begin //if our FSM says we're reading, assigns d_out equal to bits at address
+		d_out = memoryvals[addr];
+	end
+	end
+
+wire[7:0] tempreg1, tempreg2;
+assign tempreg1 = memoryvals[0];
+assign tempreg2 = memoryvals[1];
+endmodule
+
+module dff(q, d, ce, clk);		// dff means d-flip-flop
+input d, ce, clk;
+output reg q;
+
+always @(posedge clk) begin
+	if (ce == 1) begin	// if the clock edge is 1 (of a different clock)
+		q <= d;		// d-flip flop output is the input data
+	end
+	// otherwise the D flip flop outputs the previous value that it was outputting
+end
+
+endmodule
+
+module finitestatemachine(miso_buff, DM_we, ADDR_we, SR_we, cs_conditioned, shiftregp, sclk_positiveedge, stateout);
+output reg miso_buff, DM_we, ADDR_we, SR_we;
+input cs_conditioned, shiftregp, sclk_positiveedge;
+output reg[7:0] stateout;
+
+reg[3:0] state = 0; //this will be out state for our 7 states 
+reg[3:0] count = 0; 
+
+reg[7:0] tempcounter = 0;
+
+//wire cs_conditioned = 0;
+parameter GET = 0;
+parameter GOT = 1;
+parameter READ = 2;
+parameter READ2 = 3;
+parameter READ3 = 4;
+parameter WRITE = 5;
+parameter WRITE2 = 6;
+parameter DONE = 7;
+
+
+//assign cs_conditioned = 0;
+
+always @(sclk_positiveedge) begin
+if (sclk_positiveedge == 1) begin
+stateout = state + 1; 
+//tempcounter = tempcounter + 1;
+//stateout = tempcounter;
+	miso_buff = 0;
+	DM_we = 0;
+	ADDR_we = 0;
+	SR_we = 0; 
+
+if (state == GET) begin
+	//tempcounter = tempcounter + 1;
+	//count = 8;
+//		if (count < 7) begin
+		if ((count < 7) && (cs_conditioned == 0)) begin	
+			count = count + 1; 
+		end 
+		//else if (count == 7) begin
+		else if ((count  == 7) && (cs_conditioned == 0)) begin	
+			state = GOT; 
+		end 
+		else if (cs_conditioned == 1) begin
+			count = 0;
+		end
+end 
+
+else if (state == GOT) begin 
+	//`GOT: begin  //GOT, no counter
+	//tempcounter = 0; 
+		ADDR_we = 1;
+		count = 0; 
+		if ((shiftregp == 1) && (cs_conditioned == 0)) begin //wrenable 1, reading, state 3
+			state = READ; 
+		end 
+		else if ((shiftregp == 0) && (cs_conditioned == 0)) begin //wrenable 0, writing, state 
+			//state <= 5;
+				state = WRITE; 		
+		end 
+		else if (cs_conditioned ==1) begin 
+			state = GET; 
+		end
+end 
+
+else if (state == READ) begin 
+//`READ: begin
+//tempcounter = tempcounter + 1;
+	if (cs_conditioned ==1) begin 
+		state =GET;
+	end 
+	else if (cs_conditioned == 0) begin
+		state = READ2; 
+	end 
+end 
+
+else if (state == READ2) begin 
+//`READ2: begin
+//tempcounter = tempcounter + 1;
+	SR_we = 1; 
+	if (cs_conditioned ==1) begin 
+		state = GET; 
+	end 
+	else if (cs_conditioned == 0) begin  
+		state = READ3; 
+	end 
+end 
+
+else if (state == READ3) begin 
+//`READ3: begin
+//tempcounter = tempcounter + 1;
+	miso_buff = 1; 
+	if ((count <7)  && (cs_conditioned ==0)) begin  
+		count = count + 1;			
+	end 
+	else if ((count == 7)  && (cs_conditioned ==0)) begin  
+		state = DONE; 
+	end 
+	else if (cs_conditioned ==1) begin 
+		state = GET; 
+	end 	
+end 
+
+else if (state == WRITE) begin 
+//`WRITE: begin
+//tempcounter = tempcounter + 1;
+	if ((count < 7) && (cs_conditioned == 0)) begin
+		count = count + 1;
+	end
+	else if ((count == 7) && (cs_conditioned == 0)) begin
+		count = 0;
+		state = WRITE2;
+	end
+	else if (cs_conditioned == 1) begin
+		state = GET;
+	end
+end 
+
+else if (state == WRITE2) begin
+//`WRITE2: begin
+//tempcounter = tempcounter + 1;
+		DM_we = 1;
+		if (cs_conditioned == 1) begin
+			state = GET; 
+		end
+		else if (cs_conditioned == 0) begin
+			state = DONE;
+		end
+end
+
+	//`DONE: begin
+	//tempcounter = tempcounter + 1;
+else if (state == DONE) begin
+	count = 0;
+	state = GET;
+end
+
+
+end // end the if on positive edge
+end //end always
+
+endmodule
+
+
+module tristatebuffer(tri_output, tri_enable, tri_input);
+
+input tri_enable, tri_input; //MISO_buff = tri_enable, Q from DFF = tri_input
+output reg tri_output; //final output of spimem
+
+always @(tri_enable) begin
+	if (tri_enable == 0) begin
+		tri_output = 1'b z;
+	end
+	else if (tri_enable == 1) begin
+		tri_output = tri_input;
+	end
+end
+
+endmodule
+
+module testSPI;
+reg clk, sclk_pin, cs_pin, mosi_pin, faultinjector_pin; 
+wire miso_pin;
+wire[7:0] leds; 
+spiMemory testSPImem (clk, sclk_pin, cs_pin, miso_pin, mosi_pin, leds, faultinjector_pin);
+
+initial clk=0;
+always #10 clk = ~clk;
+initial sclk_pin=0;
+always #1000 sclk_pin = ~sclk_pin;
+initial begin
+//clk = 0;
+//sclk_pin = 0;
+//mosi_pin = 1;
+//cs_pin = 0;
+//#100
+//$display("MOSI %b, sclk %b, cs %b | MISO %b, leds %b", mosi_pin, sclk_pin, cs_pin, miso_pin, leds); 
+//
+cs_pin = 1;
+    #2000
+
+// WRITE 0x55 to address 1
+    cs_pin = 0;
+    mosi_pin = 0;
+    #2000
+    mosi_pin = 0;
+    #2000
+    mosi_pin = 0;
+    #2000
+    mosi_pin = 0;
+    #2000
+    mosi_pin = 0;
+    #2000
+    mosi_pin  = 0;
+    #2000
+    mosi_pin = 1;
+    #2000
+    mosi_pin = 0;
+
+    #2000
+    mosi_pin = 0;
+    #2000
+    mosi_pin = 1;
+    #2000
+    mosi_pin = 0;
+    #2000
+    mosi_pin = 1;
+    #2000
+    mosi_pin = 0;
+    #2000
+    mosi_pin = 1;
+    #2000
+    mosi_pin = 0;
+    #2000
+    mosi_pin = 1;
+
+    #2000
+    cs_pin = 1;
+    mosi_pin = 0;
+
+// WRITE 0x0 to address 1
+    #2000
+    cs_pin = 0;
+    mosi_pin = 0;
+    #2000
+    mosi_pin = 0;
+    #2000
+    mosi_pin = 0;
+    #2000
+    mosi_pin = 0;
+    #2000
+    mosi_pin = 0;
+    #2000
+    mosi_pin = 0;
+    #2000
+    mosi_pin = 1;
+    #2000
+    mosi_pin = 0;
+
+    #2000
+    mosi_pin = 0;
+    #2000
+    mosi_pin = 0;
+    #2000
+    mosi_pin = 0;
+    #2000
+    mosi_pin = 0;
+    #2000
+    mosi_pin = 0;
+    #2000
+    mosi_pin = 0;
+    #2000
+    mosi_pin = 0;
+    #2000
+    mosi_pin = 0;
+
+    #2000
+    cs_pin = 1;
+    mosi_pin = 0;
+
+// READ from address 1
+    #8000
+    cs_pin = 0;
+    mosi_pin = 0;
+    #2000
+    mosi_pin = 0;
+    #2000
+    mosi_pin = 0;
+    #2000
+    mosi_pin = 0;
+    #2000
+    mosi_pin = 0;
+    #2000
+    mosi_pin = 0;
+    #2000
+    mosi_pin = 1;
+    #2000
+    mosi_pin = 1;
+    #18000
+    cs_pin = 1;
+
+
+end
+
+
+
+endmodule

@@ -1,0 +1,41 @@
+module testFSM;
+reg clk; 
+reg [7:0] $a0_out;
+reg restart; 
+wire push_en, pop_en, active_en; 
+
+
+fsm fsm_1(push_en, pop_en, active_en, addr_zero, clk, restart)
+
+always #5 clk = ~clk; 
+
+initial begin
+//testing going from push to pop 
+addr_zero = 1;
+restart = 0; 
+#100
+$display("This test case tests the transition from push to pop.");
+$display("Addr Zero | Restart | Push Enable | Pop Enable | Active Enable");
+$display("%b, %b, %b, %b, %b", addr_zero, restart, push_en, pop_en, active_en); 
+end 
+
+end
+endmodule 
+
+module testFIB; 
+reg clk; 
+reg[7:0] a0_init; 
+
+wire v0; 
+wire done; 
+top_level_asic pratool(v0, done, a0_init, clk); 
+always #5 clk = ~clk; 
+initial begin 
+a0_init = 
+#100
+
+$display("This test case tests the entire asic.");
+$display(""); 
+$display("%b, %b, %b", a0_init, done, v0); 
+end 
+endmodule

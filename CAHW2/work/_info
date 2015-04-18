@@ -1,0 +1,252 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/CAHW2
+vbehavioralDecoder
+Z0 !s110 1411876292
+!i10b 1
+!s100 7al[>3QRZ5ilakDiSSQ6W2
+I1X`>K^CSUF_48m^Co0bY]0
+Z1 V`JN@9S9cnhjKRR_L]QIcM3
+Z2 dc:/CAHW2
+Z3 w1411352640
+Z4 8decoder.v
+Z5 Fdecoder.v
+L0 6
+Z6 OP;L;10.3c;59
+r1
+!s85 0
+31
+Z7 !s108 1411876292.646000
+Z8 !s107 adder.v|multiplexer.v|decoder.v|
+Z9 !s90 -reportprogress|300|-work|work|decoder.v|multiplexer.v|adder.v|
+!s101 -O0
+!i113 1
+Z10 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF -L infact -O0
+nbehavioral@decoder
+vbehavioralFullAdder
+R0
+!i10b 1
+!s100 3Za6Kf;4m2B=adoO`VUWC2
+I8`W`_4oj=jd5OfSXilfdX2
+R1
+R2
+w1411415910
+8adder.v
+Fadder.v
+L0 7
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!s101 -O0
+!i113 1
+R10
+nbehavioral@full@adder
+vbehavioralMultiplexer
+R0
+!i10b 1
+!s100 Dc^TGOBXdk5BldSF]:QBN0
+IYGROgg[XEO9Imi@Uo^38i1
+R1
+R2
+Z11 w1411353046
+Z12 8multiplexer.v
+Z13 Fmultiplexer.v
+L0 6
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!s101 -O0
+!i113 1
+R10
+nbehavioral@multiplexer
+vfourbitAdder
+!s110 1411580395
+!i10b 1
+!s100 SWo3<`n]<^;CYPRfJT@@@1
+IhT^J8T1IijS<^9Jb[kS`;1
+R1
+R2
+w1411580114
+Z14 8fourbitadder.v
+Z15 Ffourbitadder.v
+L0 34
+R6
+r1
+!s85 0
+31
+!s108 1411580394.803000
+!s107 fourbitadder.v|
+Z16 !s90 -reportprogress|300|-work|work|fourbitadder.v|
+!s101 -O0
+!i113 1
+R10
+nfourbit@adder
+vFullAdder4bit
+Z17 !s110 1411936004
+!i10b 1
+!s100 Z94Uzm3QbQFCe>VUUUR5?3
+Ia54a;zjo=Qg6bP<Xa5g^j0
+R1
+R2
+Z18 w1411936001
+R14
+R15
+Z19 L0 28
+R6
+r1
+!s85 0
+31
+Z20 !s108 1411936004.244000
+Z21 !s107 fourbitadder.v|
+R16
+!s101 -O0
+!i113 1
+R10
+n@full@adder4bit
+vstructuralDecoder
+R0
+!i10b 1
+!s100 ekl0QdEge=:49n5?en;cD1
+I[86iZaS[D>jEOQ14h=IG`0
+R1
+R2
+R3
+R4
+R5
+L0 13
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!s101 -O0
+!i113 1
+R10
+nstructural@decoder
+vstructuralFullAdder
+R17
+!i10b 1
+!s100 N9^o[eG61iAicmzHnNhD<2
+IcajbkPnUgd;3e6L4a[JK]2
+R1
+R2
+R18
+R14
+R15
+L0 7
+R6
+r1
+!s85 0
+31
+R20
+R21
+R16
+!s101 -O0
+!i113 1
+R10
+nstructural@full@adder
+vstructuralMultiplexer
+R0
+!i10b 1
+!s100 dzbiXhU`<G>BhjUQ@E@V`0
+IQNQ6OIdCP3HCRZ8z=h<o=3
+R1
+R2
+R11
+R12
+R13
+L0 15
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!s101 -O0
+!i113 1
+R10
+nstructural@multiplexer
+vtestDecoder
+R0
+!i10b 1
+!s100 iQn>SFM;1`lhBN>:zaL>z3
+IP_a<RSW1OH;=X]^jTY9RQ0
+R1
+R2
+R3
+R4
+R5
+R19
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!s101 -O0
+!i113 1
+R10
+ntest@decoder
+vtestFullAdder
+R17
+!i10b 1
+!s100 Om8OiZJRaSoLMD310^oaU3
+Ieg`XJW1[209;z2YQ:D`US2
+R1
+R2
+R18
+R14
+R15
+L0 56
+R6
+r1
+!s85 0
+31
+R20
+R21
+R16
+!s101 -O0
+!i113 1
+R10
+ntest@full@adder
+vtestMultiplexer
+R0
+!i10b 1
+!s100 MXhOGn5<Wi>]52VZD^9fE2
+Imd@^z[?]SXZL8CJjJ_I6B3
+R1
+R2
+R11
+R12
+R13
+L0 32
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!s101 -O0
+!i113 1
+R10
+ntest@multiplexer

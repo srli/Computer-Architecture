@@ -1,0 +1,479 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dc:/CAL1
+vadd32Bit
+!s110 1412818707
+!i10b 1
+!s100 BICcT@MDPSbnT5B4MfI9?3
+I:13YiZ0F]_3mNCA9;Rf4X3
+Z1 V`JN@9S9cnhjKRR_L]QIcM3
+R0
+w1412818704
+Z2 8ALU.v
+Z3 FALU.v
+L0 87
+Z4 OP;L;10.3c;59
+r1
+!s85 0
+31
+!s108 1412818707.202000
+Z5 !s107 ALU.v|
+Z6 !s90 -reportprogress|300|-work|work|ALU.v|
+!s101 -O0
+!i113 1
+Z7 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF -L infact -O0
+nadd32@bit
+vadder
+Z8 !s110 1412961991
+!i10b 1
+!s100 M;hBY8LKzhTgg_KcG`Y5Q1
+IhSmzYVgJoRRELNcNai:1?1
+R1
+R0
+Z9 w1412961984
+R2
+R3
+Z10 L0 66
+R4
+r1
+!s85 0
+31
+Z11 !s108 1412961991.108000
+R5
+R6
+!s101 -O0
+!i113 1
+R7
+vadder32Bit
+R8
+!i10b 1
+!s100 _GB@K@YYf<z[?c@:MOSm51
+I7_Z5eMkUG70hFM32mMQ0l2
+R1
+R0
+R9
+R2
+R3
+L0 88
+R4
+r1
+!s85 0
+31
+R11
+R5
+R6
+!s101 -O0
+!i113 1
+R7
+nadder32@bit
+vadderold
+!s110 1412821935
+!i10b 1
+!s100 8QlAOdD<jcYZ4in7@k>610
+INBB9m6h0^Ya066OI`Q=NB2
+R1
+Z12 dC:/CAL1
+w1412821933
+R2
+R3
+L0 61
+R4
+r1
+!s85 0
+31
+!s108 1412821935.932000
+R5
+R6
+!s101 -O0
+!i113 1
+R7
+vALU
+R8
+!i10b 1
+!s100 ?bhGY6iVJC5ghM4YmI:QG2
+Ii:<ZA;7lO9f=nOPK13jTF2
+R1
+R0
+R9
+R2
+R3
+L0 188
+R4
+r1
+!s85 0
+31
+R11
+R5
+R6
+!s101 -O0
+!i113 1
+R7
+n@a@l@u
+vALU_testbench
+R8
+!i10b 1
+!s100 U2Yob^5bm:6H>CI>N;@A;1
+Ign4cNWQL3MbQ^Hf^1[>5I2
+R1
+R0
+R9
+R2
+R3
+L0 235
+R4
+r1
+!s85 0
+31
+R11
+R5
+R6
+!s101 -O0
+!i113 1
+R7
+n@a@l@u_testbench
+vALU_testbenchold
+!s110 1412894632
+!i10b 1
+!s100 ^W4@aJW4lnZ``4d9LmT2o0
+IR7`J=ZVlGC7n^K[2O?Zl12
+R1
+R0
+w1412894628
+R2
+R3
+L0 377
+R4
+r1
+!s85 0
+31
+!s108 1412894632.050000
+R5
+R6
+!s101 -O0
+!i113 1
+R7
+n@a@l@u_testbenchold
+vandgate
+R8
+!i10b 1
+!s100 ;H;A]2f:=^5jI5m^=SzB52
+IhdBDa=Q3L1`7ldB:j]Y2T0
+R1
+R0
+R9
+R2
+R3
+L0 32
+R4
+r1
+!s85 0
+31
+R11
+R5
+R6
+!s101 -O0
+!i113 1
+R7
+vLUT
+R8
+!i10b 1
+!s100 7f5XOZILWP0Fgen5FVYQF1
+IOON`L3lDIf^4UMmgEoCZN3
+R1
+R0
+R9
+R2
+R3
+L0 165
+R4
+r1
+!s85 0
+31
+R11
+R5
+R6
+!s101 -O0
+!i113 1
+R7
+n@l@u@t
+vnandgate
+Z13 !s110 1412728452
+!i10b 1
+!s100 Ko0KA8JmSGK9aAlj1`Z1e3
+I<_NaF1]X9EJO5f=aN:dRV0
+R1
+R12
+Z14 w1412728450
+R2
+R3
+R10
+R4
+r1
+!s85 0
+31
+Z15 !s108 1412728452.848000
+R5
+R6
+!s101 -O0
+!i113 1
+R7
+vnor_andgate
+Z16 !s110 1412436246
+!i10b 1
+!s100 11KTBO2;:W;Xe_h]L?`F[2
+IX<1hOgV`X970_O7GIPRD50
+R1
+R12
+Z17 w1412436239
+Z18 8adder.v
+Z19 Fadder.v
+L0 6
+R4
+r1
+!s85 0
+31
+Z20 !s108 1412436246.722000
+Z21 !s107 adder.v|
+Z22 !s90 -reportprogress|300|-work|work|adder.v|
+!s101 -O0
+!i113 1
+R7
+vnorgate
+R13
+!i10b 1
+!s100 Ni242o[VS`okhC[0D1QJP3
+IUH9KfY9fSSH3CSfJOHF`K2
+R1
+R12
+R14
+R2
+R3
+L0 78
+R4
+r1
+!s85 0
+31
+R15
+R5
+R6
+!s101 -O0
+!i113 1
+R7
+vorgate
+R8
+!i10b 1
+!s100 8Nj@I[a>;ii^Tjlhd:knh1
+IC>[iCCTT5fmjXH8YDRaNP2
+R1
+R0
+R9
+R2
+R3
+L0 49
+R4
+r1
+!s85 0
+31
+R11
+R5
+R6
+!s101 -O0
+!i113 1
+R7
+vslt
+R8
+!i10b 1
+!s100 hJlXC3KKP:6TziHz4<9No0
+If3BLdh9f?LXe[gPOBGI8l1
+R1
+R0
+R9
+R2
+R3
+L0 119
+R4
+r1
+!s85 0
+31
+R11
+R5
+R6
+!s101 -O0
+!i113 1
+R7
+vstructuralMultiplexer
+R8
+!i10b 1
+!s100 onVmi0TH?QmKgGB7b[T3L2
+I3Uo7TdhFm^E@F08o4VgJc0
+R1
+R0
+R9
+R2
+R3
+L0 129
+R4
+r1
+!s85 0
+31
+R11
+R5
+R6
+!s101 -O0
+!i113 1
+R7
+nstructural@multiplexer
+vtestand
+R13
+!i10b 1
+!s100 31F1K1EZAKCRPje=_3W]J0
+I9K?RehOV21NW8fZB6WNK=3
+R1
+R12
+R14
+R2
+R3
+L0 90
+R4
+r1
+!s85 0
+31
+R15
+R5
+R6
+!s101 -O0
+!i113 1
+R7
+vtestandnor
+R16
+!i10b 1
+!s100 ABY9mPn1I^5JK4;fe2Ebj3
+I>:TdZB6Bn=gYe3DG864=R1
+R1
+R12
+R17
+R18
+R19
+L0 23
+R4
+r1
+!s85 0
+31
+R20
+R21
+R22
+!s101 -O0
+!i113 1
+R7
+vtestnor
+R13
+!i10b 1
+!s100 V^172oOj=oI;L54Na669S3
+II:[WmMd`DKFO20A^mZ6bP0
+R1
+R12
+R14
+R2
+R3
+L0 118
+R4
+r1
+!s85 0
+31
+R15
+R5
+R6
+!s101 -O0
+!i113 1
+R7
+vtestnorand
+!s110 1412552952
+!i10b 1
+!s100 nh[aXkg8K7RkmRjZ>nOKQ0
+I:d3RGc?o?dIEQ;TC]5;GE1
+R1
+R0
+w1412552948
+R2
+R3
+L0 68
+R4
+r1
+!s85 0
+31
+!s108 1412552952.334000
+R5
+R6
+!s101 -O0
+!i113 1
+R7
+vtestxor
+Z23 !s110 1412896998
+!i10b 1
+!s100 Sc^cIA?N4nBe2U@]mUX<a3
+IG`2:l=<4zZNQ;KY^ZUV^:2
+R1
+R0
+Z24 w1412896964
+Z25 8testxor.v
+Z26 Ftestxor.v
+L0 1
+R4
+r1
+!s85 0
+31
+Z27 !s108 1412896997.996000
+Z28 !s107 testxor.v|
+Z29 !s90 -reportprogress|300|-work|work|testxor.v|
+!s101 -O0
+!i113 1
+R7
+vtestxorbench
+R23
+!i10b 1
+!s100 _NGI8U^j@@7jb05R]PBIk0
+IlI?Z?L<A7R@P[=3NU<lfK3
+R1
+R0
+R24
+R25
+R26
+Z30 L0 19
+R4
+r1
+!s85 0
+31
+R27
+R28
+R29
+!s101 -O0
+!i113 1
+R7
+vxorgate
+R8
+!i10b 1
+!s100 449MCUf;zYk[IjiJ2Ub6?3
+IYJ5X4_3Sk?F;d?F`Y>HGC3
+R1
+R0
+R9
+R2
+R3
+R30
+R4
+r1
+!s85 0
+31
+R11
+R5
+R6
+!s101 -O0
+!i113 1
+R7

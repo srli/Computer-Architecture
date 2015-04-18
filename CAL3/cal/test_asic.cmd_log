@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "C:/CAL3/cal/test_asic.xst" -ofn "C:/CAL3/cal/test_asic.syr" 

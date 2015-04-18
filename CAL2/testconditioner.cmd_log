@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "C:/CAL2/testconditioner.xst" -ofn "C:/CAL2/testconditioner.syr" 

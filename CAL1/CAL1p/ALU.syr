@@ -1,0 +1,486 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.08 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.08 secs
+ 
+--> Reading design: ALU.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "ALU.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "ALU"
+Output Format                      : NGC
+Target Device                      : xc3s1000-5-ft256
+
+---- Source Options
+Top Module Name                    : ALU
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 8
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "../ALU.v" in library work
+Module <xorgate> compiled
+Module <andgate> compiled
+Module <orgate> compiled
+Module <adder> compiled
+Module <adder32Bit> compiled
+Module <slt> compiled
+Module <structuralMultiplexer> compiled
+Module <LUT> compiled
+Module <ALU> compiled
+No errors in compilation
+Analysis of file <"ALU.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <ALU> in library <work>.
+
+Analyzing hierarchy for module <LUT> in library <work>.
+
+Analyzing hierarchy for module <andgate> in library <work>.
+
+Analyzing hierarchy for module <orgate> in library <work>.
+
+Analyzing hierarchy for module <xorgate> in library <work>.
+
+Analyzing hierarchy for module <adder32Bit> in library <work>.
+
+Analyzing hierarchy for module <slt> in library <work>.
+
+Analyzing hierarchy for module <structuralMultiplexer> in library <work>.
+
+Analyzing hierarchy for module <adder> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <ALU>.
+WARNING:Xst:863 - "../ALU.v" line 181: Name conflict (<A> and <a>, renaming A as a_rnm0).
+WARNING:Xst:863 - "../ALU.v" line 181: Name conflict (<B> and <b>, renaming B as b_rnm0).
+WARNING:Xst:916 - "../ALU.v" line 210: Delay is ignored for synthesis.
+WARNING:Xst:916 - "../ALU.v" line 226: Delay is ignored for synthesis.
+WARNING:Xst:916 - "../ALU.v" line 199: Delay is ignored for synthesis.
+WARNING:Xst:916 - "../ALU.v" line 200: Delay is ignored for synthesis.
+WARNING:Xst:916 - "../ALU.v" line 199: Delay is ignored for synthesis.
+WARNING:Xst:915 - Message (916) is reported only 5 times for each module.
+Module <ALU> is correct for synthesis.
+ 
+Analyzing module <LUT> in library <work>.
+"../ALU.v" line 176: $display : Please check inputs
+Module <LUT> is correct for synthesis.
+ 
+Analyzing module <andgate> in library <work>.
+WARNING:Xst:916 - "../ALU.v" line 42: Delay is ignored for synthesis.
+WARNING:Xst:916 - "../ALU.v" line 42: Delay is ignored for synthesis.
+WARNING:Xst:916 - "../ALU.v" line 42: Delay is ignored for synthesis.
+WARNING:Xst:916 - "../ALU.v" line 42: Delay is ignored for synthesis.
+WARNING:Xst:916 - "../ALU.v" line 42: Delay is ignored for synthesis.
+WARNING:Xst:915 - Message (916) is reported only 5 times for each module.
+Module <andgate> is correct for synthesis.
+ 
+Analyzing module <orgate> in library <work>.
+WARNING:Xst:916 - "../ALU.v" line 58: Delay is ignored for synthesis.
+WARNING:Xst:916 - "../ALU.v" line 58: Delay is ignored for synthesis.
+WARNING:Xst:916 - "../ALU.v" line 58: Delay is ignored for synthesis.
+WARNING:Xst:916 - "../ALU.v" line 58: Delay is ignored for synthesis.
+WARNING:Xst:916 - "../ALU.v" line 58: Delay is ignored for synthesis.
+WARNING:Xst:915 - Message (916) is reported only 5 times for each module.
+Module <orgate> is correct for synthesis.
+ 
+Analyzing module <xorgate> in library <work>.
+WARNING:Xst:916 - "../ALU.v" line 27: Delay is ignored for synthesis.
+WARNING:Xst:916 - "../ALU.v" line 27: Delay is ignored for synthesis.
+WARNING:Xst:916 - "../ALU.v" line 27: Delay is ignored for synthesis.
+WARNING:Xst:916 - "../ALU.v" line 27: Delay is ignored for synthesis.
+WARNING:Xst:916 - "../ALU.v" line 27: Delay is ignored for synthesis.
+WARNING:Xst:915 - Message (916) is reported only 5 times for each module.
+Module <xorgate> is correct for synthesis.
+ 
+Analyzing module <adder32Bit> in library <work>.
+WARNING:Xst:916 - "../ALU.v" line 108: Delay is ignored for synthesis.
+Module <adder32Bit> is correct for synthesis.
+ 
+Analyzing module <adder> in library <work>.
+WARNING:Xst:916 - "../ALU.v" line 69: Delay is ignored for synthesis.
+WARNING:Xst:916 - "../ALU.v" line 70: Delay is ignored for synthesis.
+WARNING:Xst:916 - "../ALU.v" line 71: Delay is ignored for synthesis.
+WARNING:Xst:916 - "../ALU.v" line 73: Delay is ignored for synthesis.
+WARNING:Xst:916 - "../ALU.v" line 74: Delay is ignored for synthesis.
+WARNING:Xst:915 - Message (916) is reported only 5 times for each module.
+Module <adder> is correct for synthesis.
+ 
+Analyzing module <slt> in library <work>.
+WARNING:Xst:916 - "../ALU.v" line 119: Delay is ignored for synthesis.
+Module <slt> is correct for synthesis.
+ 
+Analyzing module <structuralMultiplexer> in library <work>.
+WARNING:Xst:916 - "../ALU.v" line 136: Delay is ignored for synthesis.
+WARNING:Xst:916 - "../ALU.v" line 137: Delay is ignored for synthesis.
+WARNING:Xst:916 - "../ALU.v" line 138: Delay is ignored for synthesis.
+WARNING:Xst:916 - "../ALU.v" line 140: Delay is ignored for synthesis.
+WARNING:Xst:916 - "../ALU.v" line 147: Delay is ignored for synthesis.
+WARNING:Xst:915 - Message (916) is reported only 5 times for each module.
+Module <structuralMultiplexer> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <LUT>.
+    Related source file is "../ALU.v".
+    Found 8x7-bit ROM for signal <addr$rom0000>.
+    Summary:
+	inferred   1 ROM(s).
+Unit <LUT> synthesized.
+
+
+Synthesizing Unit <andgate>.
+    Related source file is "../ALU.v".
+Unit <andgate> synthesized.
+
+
+Synthesizing Unit <orgate>.
+    Related source file is "../ALU.v".
+Unit <orgate> synthesized.
+
+
+Synthesizing Unit <xorgate>.
+    Related source file is "../ALU.v".
+    Found 32-bit xor2 for signal <out>.
+Unit <xorgate> synthesized.
+
+
+Synthesizing Unit <slt>.
+    Related source file is "../ALU.v".
+WARNING:Xst:647 - Input <sum<30:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 1-bit xor2 for signal <slto>.
+Unit <slt> synthesized.
+
+
+Synthesizing Unit <structuralMultiplexer>.
+    Related source file is "../ALU.v".
+WARNING:Xst:1780 - Signal <addr2_inv> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <addr1_inv> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <addr0_inv> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+Unit <structuralMultiplexer> synthesized.
+
+
+Synthesizing Unit <adder>.
+    Related source file is "../ALU.v".
+Unit <adder> synthesized.
+
+
+Synthesizing Unit <adder32Bit>.
+    Related source file is "../ALU.v".
+    Found 1-bit xor2 for signal <over_flow>.
+Unit <adder32Bit> synthesized.
+
+
+Synthesizing Unit <ALU>.
+    Related source file is "../ALU.v".
+WARNING:Xst:646 - Signal <overflow> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 32-bit xor2 for signal <a_rnm0>.
+    Found 32-bit xor2 for signal <b_rnm0>.
+Unit <ALU> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 1
+ 8x7-bit ROM                                           : 1
+# Xors                                                 : 98
+ 1-bit xor2                                            : 98
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 1
+ 8x7-bit ROM                                           : 1
+# Xors                                                 : 98
+ 1-bit xor2                                            : 98
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <ALU> ...
+
+Optimizing unit <adder32Bit> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block ALU, actual ratio is 2.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Found no macro
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : ALU.ngr
+Top Level Output File Name         : ALU
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 102
+
+Cell Usage :
+# BELS                             : 306
+#      GND                         : 1
+#      LUT2                        : 1
+#      LUT3                        : 62
+#      LUT4                        : 201
+#      MUXCY                       : 8
+#      MUXF5                       : 32
+#      VCC                         : 1
+# IO Buffers                       : 102
+#      IBUF                        : 67
+#      OBUF                        : 35
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s1000ft256-5 
+
+ Number of Slices:                      146  out of   7680     1%  
+ Number of 4 input LUTs:                264  out of  15360     1%  
+ Number of IOs:                         102
+ Number of bonded IOBs:                 102  out of    173    58%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+No clock signals found in this design
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: No path found
+   Maximum combinational path delay: 58.472ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 26652 / 35
+-------------------------------------------------------------------------
+Delay:               58.472ns (Levels of Logic = 46)
+  Source:            addr<1> (PAD)
+  Destination:       zero (PAD)
+
+  Data Path: addr<1> to zero
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           159   0.715   2.364  addr_1_IBUF (addr_1_IBUF)
+     LUT4:I1->O            2   0.479   0.804  Mxor_b_rnm0<0>_Result1 (b_rnm0<0>)
+     LUT4:I2->O            2   0.479   0.915  add_gate/adder_init/carryout1 (add_gate/carry_oarray<0>)
+     LUT3:I1->O            2   0.479   0.915  add_gate/adder1/carryout1 (add_gate/carry_oarray<1>)
+     LUT3:I1->O            2   0.479   0.915  add_gate/add32b[2].addergen/carryout1 (add_gate/carry_oarray<2>)
+     LUT3:I1->O            2   0.479   0.915  add_gate/add32b[3].addergen/carryout1 (add_gate/carry_oarray<3>)
+     LUT3:I1->O            2   0.479   0.915  add_gate/add32b[4].addergen/carryout1 (add_gate/carry_oarray<4>)
+     LUT3:I1->O            2   0.479   0.915  add_gate/add32b[5].addergen/carryout1 (add_gate/carry_oarray<5>)
+     LUT3:I1->O            2   0.479   0.915  add_gate/add32b[6].addergen/carryout1 (add_gate/carry_oarray<6>)
+     LUT3:I1->O            2   0.479   0.915  add_gate/add32b[7].addergen/carryout1 (add_gate/carry_oarray<7>)
+     LUT3:I1->O            2   0.479   0.915  add_gate/add32b[8].addergen/carryout1 (add_gate/carry_oarray<8>)
+     LUT3:I1->O            2   0.479   0.915  add_gate/add32b[9].addergen/carryout1 (add_gate/carry_oarray<9>)
+     LUT3:I1->O            2   0.479   0.915  add_gate/add32b[10].addergen/carryout1 (add_gate/carry_oarray<10>)
+     LUT3:I1->O            2   0.479   0.915  add_gate/add32b[11].addergen/carryout1 (add_gate/carry_oarray<11>)
+     LUT3:I1->O            2   0.479   0.915  add_gate/add32b[12].addergen/carryout1 (add_gate/carry_oarray<12>)
+     LUT3:I1->O            2   0.479   0.915  add_gate/add32b[13].addergen/carryout1 (add_gate/carry_oarray<13>)
+     LUT3:I1->O            2   0.479   0.915  add_gate/add32b[14].addergen/carryout1 (add_gate/carry_oarray<14>)
+     LUT3:I1->O            2   0.479   0.915  add_gate/add32b[15].addergen/carryout1 (add_gate/carry_oarray<15>)
+     LUT3:I1->O            2   0.479   0.915  add_gate/add32b[16].addergen/carryout1 (add_gate/carry_oarray<16>)
+     LUT3:I1->O            2   0.479   0.915  add_gate/add32b[17].addergen/carryout1 (add_gate/carry_oarray<17>)
+     LUT3:I1->O            2   0.479   0.915  add_gate/add32b[18].addergen/carryout1 (add_gate/carry_oarray<18>)
+     LUT3:I1->O            2   0.479   0.915  add_gate/add32b[19].addergen/carryout1 (add_gate/carry_oarray<19>)
+     LUT3:I1->O            2   0.479   0.915  add_gate/add32b[20].addergen/carryout1 (add_gate/carry_oarray<20>)
+     LUT3:I1->O            2   0.479   0.915  add_gate/add32b[21].addergen/carryout1 (add_gate/carry_oarray<21>)
+     LUT3:I1->O            2   0.479   0.915  add_gate/add32b[22].addergen/carryout1 (add_gate/carry_oarray<22>)
+     LUT3:I1->O            2   0.479   0.915  add_gate/add32b[23].addergen/carryout1 (add_gate/carry_oarray<23>)
+     LUT3:I1->O            2   0.479   0.915  add_gate/add32b[24].addergen/carryout1 (add_gate/carry_oarray<24>)
+     LUT3:I1->O            2   0.479   0.915  add_gate/add32b[25].addergen/carryout1 (add_gate/carry_oarray<25>)
+     LUT3:I1->O            2   0.479   0.915  add_gate/add32b[26].addergen/carryout1 (add_gate/carry_oarray<26>)
+     LUT3:I1->O            2   0.479   0.915  add_gate/add32b[27].addergen/carryout1 (add_gate/carry_oarray<27>)
+     LUT3:I1->O            2   0.479   0.915  add_gate/add32b[28].addergen/carryout1 (add_gate/carry_oarray<28>)
+     LUT3:I1->O            2   0.479   0.915  add_gate/add32b[29].addergen/carryout1 (add_gate/carry_oarray<29>)
+     LUT3:I1->O           34   0.479   1.644  add_gate/add32b[30].addergen/carryout1 (add_gate/carry_oarray<30>)
+     LUT4:I2->O            1   0.479   0.000  mux_structure/out_8_or0000138_SW0_G (N202)
+     MUXF5:I1->O           1   0.314   0.740  mux_structure/out_8_or0000138_SW0 (N133)
+     LUT4:I2->O            2   0.479   1.040  mux_structure/out_8_or0000138 (out_8_OBUF)
+     LUT4:I0->O            1   0.479   0.000  zero_wg_lut<0> (zero_wg_lut<0>)
+     MUXCY:S->O            1   0.435   0.000  zero_wg_cy<0> (zero_wg_cy<0>)
+     MUXCY:CI->O           1   0.056   0.000  zero_wg_cy<1> (zero_wg_cy<1>)
+     MUXCY:CI->O           1   0.056   0.000  zero_wg_cy<2> (zero_wg_cy<2>)
+     MUXCY:CI->O           1   0.056   0.000  zero_wg_cy<3> (zero_wg_cy<3>)
+     MUXCY:CI->O           1   0.056   0.000  zero_wg_cy<4> (zero_wg_cy<4>)
+     MUXCY:CI->O           1   0.056   0.000  zero_wg_cy<5> (zero_wg_cy<5>)
+     MUXCY:CI->O           1   0.056   0.000  zero_wg_cy<6> (zero_wg_cy<6>)
+     MUXCY:CI->O           1   0.265   0.681  zero_wg_cy<7> (zero_OBUF)
+     OBUF:I->O                 4.909          zero_OBUF (zero)
+    ----------------------------------------
+    Total                     58.472ns (23.735ns logic, 34.736ns route)
+                                       (40.6% logic, 59.4% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 7.67 secs
+ 
+--> 
+
+Total memory usage is 272048 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   45 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

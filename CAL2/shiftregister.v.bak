@@ -1,0 +1,105 @@
+module shiftregister(clk, peripheralClkEdge, parallelLoad, parallelDataIn, serialDataIn, parallelDataOut, serialDataOut, faultinjector);
+parameter width = 8;
+input               clk;
+input               peripheralClkEdge; //Edge indicator
+input               parallelLoad;
+output wire [width-1:0]   parallelDataOut;
+output              serialDataOut;
+input[width-1:0]    parallelDataIn;
+input               serialDataIn;
+input					  faultinjector;
+
+reg[width-1:0]      shiftregistermem;
+
+always @(posedge clk) begin
+	if (parallelLoad == 1) begin
+		shiftregistermem = parallelDataIn;
+	end
+	else if (parallelLoad == 0 && peripheralClkEdge == 1) begin//&& faultinjector == 0) begin
+		shiftregistermem = shiftregistermem << 1;
+		shiftregistermem[0] = serialDataIn;
+	end
+end
+
+assign parallelDataOut = shiftregistermem;
+assign serialDataOut = parallelDataOut[7];
+
+endmodule
+
+
+
+module testshiftregister;
+reg             clk;
+reg             peripheralClkEdge;
+reg             parallelLoad;
+wire[7:0]       parallelDataOut;
+wire            serialDataOut;
+reg[7:0]        parallelDataIn;
+reg             serialDataIn; 
+// Instantiate with parameter width = 8
+shiftregister #(8) sr(clk, peripheralClkEdge, parallelLoad, parallelDataIn, serialDataIn, parallelDataOut, serialDataOut);
+
+initial begin
+//We display parallel and serial data out to show both are working correctly
+//Test Case 1: Parallel data not written to, shows we can shift with Xs
+#5 clk=0; #5 clk=1;
+peripheralClkEdge=1;
+parallelLoad=0;
+serialDataIn=1;
+#100
+
+$display("test1");
+$display("parallelDataOut %b, expected xxxx_xxx1", parallelDataOut);
+$display("serialDataOut %b, expected x", serialDataOut);
+
+//Test Case 2: Shows we can correctly shift existing data
+#5 clk=0; #5 clk=1;
+peripheralClkEdge = 1;
+parallelLoad = 0;
+serialDataIn = 0;
+#100
+
+$display("test2");
+$display("parallelDataOut %b, expected xxxx_xx10", parallelDataOut);
+$display("serialDataOut %b, expected x", serialDataOut);
+
+//Test Case 3: Parallel data in, Parallel load enabled. Output becomes parallel data in
+#5 clk=0; #5 clk=1;
+peripheralClkEdge = 1;
+parallelLoad = 1;
+parallelDataIn = 6;
+serialDataIn = 0;
+#100
+
+$display("test3");
+$display("parallelDataOut %b, expected 0000_0110", parallelDataOut);
+$display("serialDataOut %b, expected 0", serialDataOut);
+
+//Test Case 4: Peripheral Clk Edge low, but Parallel load enabled
+#5 clk=0; #5 clk=1;
+peripheralClkEdge = 0;
+parallelLoad = 1;
+parallelDataIn = 128;
+serialDataIn = 1;
+#100
+
+$display("test4");
+$display("parallelDataOut %b, expected 1000_0000", parallelDataOut);
+$display("serialDataOut %b, expected 1", serialDataOut);
+
+//Test Case 5: peripheral Clk Edge low, parallel load not enabled, so no shifting is done.
+#5 clk=0; #5 clk=1;
+peripheralClkEdge = 0;
+parallelLoad = 0;
+serialDataIn = 1;
+#100
+
+$display("test5");
+$display("parallelDataOut %b, expected 1000_0000", parallelDataOut);
+$display("serialDataOut %b, expected 1", serialDataOut);
+//$display("serialDataOut %b", serialDataOut);
+// Your Test Code
+
+end
+
+endmodule

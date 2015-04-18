@@ -1,0 +1,273 @@
+module dff_enable(out, in, enable, clk, reset_val, reset_button);
+input[31:0] in, reset_val;
+input enable, clk, reset_button;
+output wire[31:0] out;
+
+reg[31:0] val;
+
+always @(posedge clk) begin
+	//val = reset_val;
+	if (reset_button) begin
+		val = reset_val;
+	end
+	else if(!reset_button) begin
+		if (enable) begin
+			val = in;
+		end
+	end
+end
+
+assign out = val;
+
+endmodule
+
+module two_input_mux(out, input1, input2, selector); //output is either of the two inputs depending on enable
+input [31:0] input1,input2;
+input selector;
+output reg[31:0] out;
+always @ (selector)
+	if (selector) begin
+		assign out = input1;
+	end
+	else if (!selector) begin
+		assign out = input2;
+	end
+endmodule
+
+module three_input_mux(out, input1, input2, input3, push, pop, active);
+input[31:0] input1, input2, input3;
+input push, pop, active;
+output reg[31:0] out;
+
+always @ (*)
+if(push) begin
+	assign out =  input3;
+end
+else if(pop) begin
+	assign out = input1;
+end
+else if(!active) begin
+	assign out = input2;
+end
+else begin
+	assign out = 8'b0;
+end
+endmodule
+
+module adder(out, zeroflag_out, input_a, input_b); //adds two inputs
+input[31:0] input_a, input_b;
+output reg[31:0] out;
+output zeroflag_out;
+
+reg carryout;
+
+wire and_1_val;
+always @ (input_a or input_b)
+begin
+ {carryout, out} = input_a + input_b;
+end
+// for zero flag NAND with result
+and and_1(and_1_val, out, 8'b0);
+not inv_1(zeroflag_out, and_1_val);
+
+endmodule 
+
+module stack_register(val_out, addr, val_in, push, pop, clk); //stack register where all the pushing/popping will happen
+input clk;
+input push, pop;
+input[31:0] addr, val_in;
+
+output reg[31:0] val_out; 
+//assign val_out = 1'b0;
+
+reg[31:0] register[31:0]; // = 31'b0;
+
+//generate
+//genvar k;
+//for (k=0; k<32; k=k+1)
+//	begin: reginit
+//		register[k] = 8'b0;
+//	end
+//endgenerate
+
+always @ (posedge clk) begin
+	if (push) begin //TO DO: May have to alter these to check for when we're in push, when we're in pop
+		register[addr] = val_in;
+	end
+	if (pop) begin
+		val_out <= register[addr];
+		register[addr] <= 31'b0;
+	end
+	else begin
+		val_out = 31'b1;
+	end
+end
+endmodule
+
+module fsm(push_en, pop_en, active_en, addr_zero, a0_initial, a0_stackreg, clk, restart);
+input clk;
+input[31:0] addr_zero, a0_stackreg, a0_initial;
+input restart;
+
+output reg push_en, pop_en, active_en;
+
+reg[1:0] FSM_state = 2;
+
+parameter PUSH = 0;
+parameter POP = 1;
+parameter DONE = 2;
+
+
+always @(posedge clk) begin
+if (restart == 1) begin
+	FSM_state = PUSH;
+end
+
+push_en = 0;
+pop_en = 0;
+active_en = 0;
+
+	if (FSM_state == PUSH) begin
+		push_en = 1;
+		pop_en = 0;
+		active_en = 1;
+		//FSM_state = POP;
+
+		if (addr_zero == 2) begin
+			FSM_state = POP;
+		end
+		else if (addr_zero == 0) begin
+			FSM_state = DONE;
+		end
+	end
+
+	else if (FSM_state == POP) begin
+		push_en = 0;
+		pop_en = 1;
+		active_en = 1;
+
+		if (a0_stackreg == (a0_initial-2)) begin
+			FSM_state = DONE;
+		end
+	end
+
+	else if (FSM_state == DONE) begin
+		push_en = 0;
+		pop_en = 0;
+		active_en = 0;
+	end
+end
+endmodule
+
+module single_fib(v0, done, a0_init, clk, reset_button);
+input clk, reset_button;
+input[31:0] a0_init;
+output[31:0] v0;
+output done;
+
+wire[31:0] a0; //initial value we start the fibonnaci sequence from
+wire[31:0] a1; //v0 is current, a1 is back 1, a2 is back 2. these values are for adding
+wire[31:0] sp; //these are stack addresses
+
+reg restart;
+wire push_en, pop_en, active_en, addr_zero;
+
+assign done = active_en;
+
+wire[31:0] a0_stackregout;
+wire[31:0] a0_temp, a0_tempadd, v0_temp, sp_temp;
+
+wire[31:0] sp_changer;
+wire a0_zeroflag, sp_zeroflag, v0_zeroflag;
+
+stack_register stackreg (a0_stackregout, sp, a0, push_en, pop_en, clk);
+fsm fsm1(push_en, pop_en, active_en, a0_tempadd, a0_init, a0_stackregout, clk, reset_button);
+
+adder a0_add (a0_tempadd, a0_zeroflag, a0, 32'b1111_1111_1111_1111_1111_1111_1111_1111_1111_1111); //adds two inputs //MAKE THIS NEGATIVE
+three_input_mux a0_mux (a0_temp, a0_stackregout, a0_init, a0_tempadd, push_en, pop_en, active_en); //chooses between three inputs
+dff_enable a0dff (a0, a0_temp, active_en, clk, a0_init, reset_button);
+
+two_input_mux sp_mux (sp_changer, 32'b1, 32'b1111_1111_1111_1111_1111_1111_1111_1111, push_en); //MAKE ONE OF THESE NEGATIVE
+adder sp_add (sp_temp, sp_zeroflag, sp, sp_changer);
+dff_enable spdff (sp, sp_temp, active_en, clk, 32'b1, reset_button);
+
+dff_enable v0dff (v0, v0_temp, pop_en, clk, 32'b0, reset_button);
+
+adder fibb (v0_temp, v0_zeroflag, a1, v0);
+
+dff_enable a1dff (a1, v0, pop_en, clk, 32'b1, reset_button); 
+endmodule
+
+module total_asic(sum1, sum2, total_sum, done, clk, reset_button, fib1_init, fib2_init);
+input clk, reset_button;
+input [31:0] fib1_init;
+input [31:0] fib2_init;
+output[31:0] sum1;
+output[31:0] sum2;
+output[31:0] total_sum;
+output done;
+
+wire zero_flag;
+wire done1, done2;
+
+single_fib fib1(sum1, done1, fib1_init, clk, reset_button);
+single_fib fib2(sum2, done2, fib2_init, clk, reset_button);
+
+//if (done1 && done2) begin
+	adder fib_sum(total_sum, zero_flag, sum1, sum2);
+//end
+endmodule
+
+module testFIB; 
+reg clk;
+reg reset;
+reg[31:0] a0_init; 
+
+wire[31:0] v0; 
+wire done; 
+top_level_asic asic1(v0, done, a0_init, clk, reset); 
+always #5 clk = ~clk; 
+
+initial begin 
+clk = 0;
+a0_init = 8;
+reset = 0; #5
+reset = 1; #5
+reset = 0;
+#100
+
+$display("This test case tests the entire asic.");
+$display("Address 0 Value | Done Flag | FIB Output"); 
+$display("%b, %b, %b", a0_init, done, v0); 
+end 
+endmodule 
+
+
+module test_asic;
+reg clk;
+reg reset;
+reg [31:0] fib1_init;
+reg [31:0] fib2_init;
+
+wire[31:0] total_sum;
+wire[31:0] sum1;
+wire[31:0] sum2;
+wire done;
+
+total_asic asic1(sum1, sum2, total_sum, done, clk, reset, fib1_init, fib2_init);
+always #5 clk = ~clk;
+
+initial begin
+clk = 0;
+fib1_init = 20;
+fib2_init = 2;
+reset = 0; #5
+reset = 1; #5
+reset = 0;
+$display("This test case tests the entire asic.");
+$display("InputNum1 | InputNum2 | Reset? || sum1 | sum2 | total_sum | done ");
+$display("%h, %h, %h, %h, %h, %h, %h", fib1_init, fib2_init, reset, sum1, sum2, total_sum, done);
+
+end
+
+endmodule

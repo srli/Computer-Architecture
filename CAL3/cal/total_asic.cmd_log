@@ -1,0 +1,17 @@
+xst -intstyle ise -ifn "C:/CAL3/cal/total_asic.xst" -ofn "C:/CAL3/cal/total_asic.syr" 
+xst -intstyle ise -ifn "C:/CAL3/cal/total_asic.xst" -ofn "C:/CAL3/cal/total_asic.syr" 
+xst -intstyle ise -ifn "C:/CAL3/cal/total_asic.xst" -ofn "C:/CAL3/cal/total_asic.syr" 
+xst -intstyle ise -ifn "C:/CAL3/cal/total_asic.xst" -ofn "C:/CAL3/cal/total_asic.syr" 
+xst -intstyle ise -ifn "C:/CAL3/cal/total_asic.xst" -ofn "C:/CAL3/cal/total_asic.syr" 
+xst -intstyle ise -ifn "C:/CAL3/cal/total_asic.xst" -ofn "C:/CAL3/cal/total_asic.syr" 
+xst -intstyle ise -ifn "C:/CAL3/cal/total_asic.xst" -ofn "C:/CAL3/cal/total_asic.syr" 
+xst -intstyle ise -ifn "C:/CAL3/cal/total_asic.xst" -ofn "C:/CAL3/cal/total_asic.syr" 
+xst -intstyle ise -ifn "C:/CAL3/cal/total_asic.xst" -ofn "C:/CAL3/cal/total_asic.syr" 
+xst -intstyle ise -ifn "C:/CAL3/cal/total_asic.xst" -ofn "C:/CAL3/cal/total_asic.syr" 
+xst -intstyle ise -ifn "C:/CAL3/cal/total_asic.xst" -ofn "C:/CAL3/cal/total_asic.syr" 
+xst -intstyle ise -ifn "C:/CAL3/cal/total_asic.xst" -ofn "C:/CAL3/cal/total_asic.syr" 
+xst -intstyle ise -ifn "C:/CAL3/cal/total_asic.xst" -ofn "C:/CAL3/cal/total_asic.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s1000-ft256-5 total_asic.ngc total_asic.ngd  
+map -intstyle ise -p xc3s1000-ft256-5 -cm area -ir off -pr off -c 100 -o total_asic_map.ncd total_asic.ngd total_asic.pcf 
+par -w -intstyle ise -ol high -t 1 total_asic_map.ncd total_asic.ncd total_asic.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml total_asic.twx total_asic.ncd -o total_asic.twr total_asic.pcf 

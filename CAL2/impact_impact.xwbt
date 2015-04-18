@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=C:\CAL2\impact.xsl
+OUTFILE=C:\CAL2\impact.xsl
+FAMILY=Multiple
+PART=Multiple
+WORKINGDIR=C:\CAL2
+LICENSE=iMPACT
+USER_INFO=iMPACT

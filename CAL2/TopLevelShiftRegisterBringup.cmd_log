@@ -1,0 +1,23 @@
+xst -intstyle ise -ifn "C:/CAL2/TopLevelShiftRegisterBringup.xst" -ofn "C:/CAL2/TopLevelShiftRegisterBringup.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc mp2.ucf -p xc3s1000-ft256-5 TopLevelShiftRegisterBringup.ngc TopLevelShiftRegisterBringup.ngd  
+xst -intstyle ise -ifn "C:/CAL2/TopLevelShiftRegisterBringup.xst" -ofn "C:/CAL2/TopLevelShiftRegisterBringup.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc mp2.ucf -p xc3s1000-ft256-5 TopLevelShiftRegisterBringup.ngc TopLevelShiftRegisterBringup.ngd  
+xst -intstyle ise -ifn "C:/CAL2/TopLevelShiftRegisterBringup.xst" -ofn "C:/CAL2/TopLevelShiftRegisterBringup.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc mp2.ucf -p xc3s1000-ft256-5 TopLevelShiftRegisterBringup.ngc TopLevelShiftRegisterBringup.ngd  
+xst -intstyle ise -ifn "C:/CAL2/TopLevelShiftRegisterBringup.xst" -ofn "C:/CAL2/TopLevelShiftRegisterBringup.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc mp2.ucf -p xc3s1000-ft256-5 TopLevelShiftRegisterBringup.ngc TopLevelShiftRegisterBringup.ngd  
+xst -intstyle ise -ifn "C:/CAL2/TopLevelShiftRegisterBringup.xst" -ofn "C:/CAL2/TopLevelShiftRegisterBringup.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc mp2.ucf -p xc3s1000-ft256-5 TopLevelShiftRegisterBringup.ngc TopLevelShiftRegisterBringup.ngd  
+xst -intstyle ise -ifn "C:/CAL2/TopLevelShiftRegisterBringup.xst" -ofn "C:/CAL2/TopLevelShiftRegisterBringup.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc mp2.ucf -p xc3s1000-ft256-5 TopLevelShiftRegisterBringup.ngc TopLevelShiftRegisterBringup.ngd  
+xst -intstyle ise -ifn "C:/CAL2/TopLevelShiftRegisterBringup.xst" -ofn "C:/CAL2/TopLevelShiftRegisterBringup.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc mp2.ucf -p xc3s1000-ft256-5 TopLevelShiftRegisterBringup.ngc TopLevelShiftRegisterBringup.ngd  
+xst -intstyle ise -ifn "C:/CAL2/TopLevelShiftRegisterBringup.xst" -ofn "C:/CAL2/TopLevelShiftRegisterBringup.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc mp2.ucf -p xc3s1000-ft256-5 TopLevelShiftRegisterBringup.ngc TopLevelShiftRegisterBringup.ngd  
+xst -intstyle ise -ifn "C:/CAL2/TopLevelShiftRegisterBringup.xst" -ofn "C:/CAL2/TopLevelShiftRegisterBringup.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc mp2.ucf -p xc3s1000-ft256-5 TopLevelShiftRegisterBringup.ngc TopLevelShiftRegisterBringup.ngd  
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc mp2.ucf -p xc3s1000-ft256-5 TopLevelShiftRegisterBringup.ngc TopLevelShiftRegisterBringup.ngd  
+xst -intstyle ise -ifn "C:/CAL2/TopLevelShiftRegisterBringup.xst" -ofn "C:/CAL2/TopLevelShiftRegisterBringup.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc mp2.ucf -p xc3s1000-ft256-5 TopLevelShiftRegisterBringup.ngc TopLevelShiftRegisterBringup.ngd  
+xst -intstyle ise -ifn "C:/CAL2/TopLevelShiftRegisterBringup.xst" -ofn "C:/CAL2/TopLevelShiftRegisterBringup.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc mp2.ucf -p xc3s1000-ft256-5 TopLevelShiftRegisterBringup.ngc TopLevelShiftRegisterBringup.ngd  

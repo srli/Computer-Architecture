@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="Xst" num="863" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">181</arg>: Name conflict (<arg fmt="%s" index="3">&lt;A&gt; and &lt;a&gt;, renaming A as a_rnm0</arg>).
+</msg>
+
+<msg type="warning" file="Xst" num="863" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">181</arg>: Name conflict (<arg fmt="%s" index="3">&lt;B&gt; and &lt;b&gt;, renaming B as b_rnm0</arg>).
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">210</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">226</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">199</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">200</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">199</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="915" delta="new" >Message (<arg fmt="%d" index="1">916</arg>) is reported only 5 times for each module.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">42</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">42</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">42</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">42</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">42</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="915" delta="new" >Message (<arg fmt="%d" index="1">916</arg>) is reported only 5 times for each module.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">58</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">58</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">58</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">58</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">58</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="915" delta="new" >Message (<arg fmt="%d" index="1">916</arg>) is reported only 5 times for each module.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">27</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">27</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">27</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">27</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">27</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="915" delta="new" >Message (<arg fmt="%d" index="1">916</arg>) is reported only 5 times for each module.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">108</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">69</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">70</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">71</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">73</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">74</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="915" delta="new" >Message (<arg fmt="%d" index="1">916</arg>) is reported only 5 times for each module.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">119</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">136</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">137</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">138</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">140</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="916" delta="new" >&quot;<arg fmt="%s" index="1">../ALU.v</arg>&quot; line <arg fmt="%d" index="2">147</arg>: Delay is ignored for synthesis.
+</msg>
+
+<msg type="warning" file="Xst" num="915" delta="new" >Message (<arg fmt="%d" index="1">916</arg>) is reported only 5 times for each module.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">sum&lt;30:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="new" >Signal &lt;<arg fmt="%s" index="1">addr2_inv</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="new" >Signal &lt;<arg fmt="%s" index="1">addr1_inv</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1780" delta="new" >Signal &lt;<arg fmt="%s" index="1">addr0_inv</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">overflow</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+</msg>
+
+</messages>
+

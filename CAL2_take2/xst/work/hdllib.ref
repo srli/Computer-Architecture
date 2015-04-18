@@ -1,0 +1,11 @@
+MO testSPIMemory NULL spimemory3.v vlg61/test_s_p_i_memory.bin 1415079025
+MO dff NULL dff.v vlg28/dff.bin 1415079025
+MO tristatebuffer NULL tristatebuffer.v vlg2A/tristatebuffer.bin 1415079025
+MO mp2 NULL mp2.v vlg07/mp2.bin 1415078971
+MO shiftregister NULL shiftregister.v vlg27/shiftregister.bin 1415079025
+MO inputconditioner NULL inputconditioner.v vlg0E/inputconditioner.bin 1415079025
+MO spiMemory NULL spimemory3.v vlg3D/spi_memory.bin 1415079025
+MO finitestatemachine NULL finitestatemachine.v vlg0D/finitestatemachine.bin 1415079025
+MO AddressLatch NULL AddressLatch.v vlg36/_address_latch.bin 1415079025
+MO datamemory NULL datamemory.v vlg6B/datamemory.bin 1415079025
+MO TopLevelSPIMemory NULL TopLevelSPIMemory.v vlg2C/_top_level_s_p_i_memory.bin 1415079025

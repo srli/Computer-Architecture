@@ -1,0 +1,800 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.08 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> Reading design: mp2.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "mp2.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "mp2"
+Output Format                      : NGC
+Target Device                      : xc3s1000-5-ft256
+
+---- Source Options
+Top Module Name                    : mp2
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 8
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "shiftregister.v" in library work
+Compiling verilog file "inputconditioner.v" in library work
+Module <shiftregister> compiled
+Compiling verilog file "spimemory.v" in library work
+Module <inputconditioner> compiled
+Module <spiMemory> compiled
+Module <AddressLatch> compiled
+Module <datamemory> compiled
+Module <dff> compiled
+Module <finitestatemachine> compiled
+Compiling verilog file "TopLevelSPIMemory.v" in library work
+Module <tristatebuffer> compiled
+Compiling verilog file "mp2.v" in library work
+Module <TopLevelSPIMemory> compiled
+Module <mp2> compiled
+No errors in compilation
+Analysis of file <"mp2.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <mp2> in library <work>.
+
+Analyzing hierarchy for module <TopLevelSPIMemory> in library <work>.
+
+Analyzing hierarchy for module <spiMemory> in library <work>.
+
+Analyzing hierarchy for module <inputconditioner> in library <work> with parameters.
+	counterwidth = "00000000000000000000000000000011"
+	waittime = "00000000000000000000000000000011"
+
+Analyzing hierarchy for module <finitestatemachine> in library <work> with parameters.
+	DONE = "00000000000000000000000000000111"
+	GET = "00000000000000000000000000000000"
+	GOT = "00000000000000000000000000000001"
+	READ = "00000000000000000000000000000010"
+	READ2 = "00000000000000000000000000000011"
+	READ3 = "00000000000000000000000000000100"
+	WRITE = "00000000000000000000000000000101"
+	WRITE2 = "00000000000000000000000000000110"
+
+Analyzing hierarchy for module <shiftregister> in library <work> with parameters.
+	width = "00000000000000000000000000001000"
+
+Analyzing hierarchy for module <AddressLatch> in library <work>.
+
+Analyzing hierarchy for module <datamemory> in library <work>.
+
+Analyzing hierarchy for module <dff> in library <work>.
+
+Analyzing hierarchy for module <tristatebuffer> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <mp2>.
+Module <mp2> is correct for synthesis.
+ 
+Analyzing module <TopLevelSPIMemory> in library <work>.
+Module <TopLevelSPIMemory> is correct for synthesis.
+ 
+Analyzing module <spiMemory> in library <work>.
+Module <spiMemory> is correct for synthesis.
+ 
+Analyzing module <inputconditioner> in library <work>.
+	counterwidth = 32'sb00000000000000000000000000000011
+	waittime = 32'sb00000000000000000000000000000011
+Module <inputconditioner> is correct for synthesis.
+ 
+Analyzing module <finitestatemachine> in library <work>.
+	DONE = 32'sb00000000000000000000000000000111
+	GET = 32'sb00000000000000000000000000000000
+	GOT = 32'sb00000000000000000000000000000001
+	READ = 32'sb00000000000000000000000000000010
+	READ2 = 32'sb00000000000000000000000000000011
+	READ3 = 32'sb00000000000000000000000000000100
+	WRITE = 32'sb00000000000000000000000000000101
+	WRITE2 = 32'sb00000000000000000000000000000110
+Module <finitestatemachine> is correct for synthesis.
+ 
+Analyzing module <shiftregister> in library <work>.
+	width = 32'sb00000000000000000000000000001000
+Module <shiftregister> is correct for synthesis.
+ 
+Analyzing module <AddressLatch> in library <work>.
+Module <AddressLatch> is correct for synthesis.
+ 
+Analyzing module <datamemory> in library <work>.
+INFO:Xst:1433 - Contents of array <memoryvals> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
+INFO:Xst:1433 - Contents of array <memoryvals> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
+Module <datamemory> is correct for synthesis.
+ 
+Analyzing module <dff> in library <work>.
+Module <dff> is correct for synthesis.
+ 
+Analyzing module <tristatebuffer> in library <work>.
+WARNING:Xst:905 - "spimemory.v" line 275: One or more signals are missing in the sensitivity list of always block. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <tri_input>
+Module <tristatebuffer> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+INFO:Xst:2679 - Register <stateout<7>> in unit <finitestatemachine> has a constant value of 0 during circuit operation. The register is replaced by logic.
+
+Synthesizing Unit <inputconditioner>.
+    Related source file is "inputconditioner.v".
+    Found 1-bit register for signal <negativeedge>.
+    Found 1-bit register for signal <positiveedge>.
+    Found 1-bit register for signal <conditioned>.
+    Found 3-bit up counter for signal <counter>.
+    Found 1-bit xor2 for signal <positiveedge$xor0000> created at line 15.
+    Found 1-bit register for signal <synchronizer0>.
+    Found 1-bit register for signal <synchronizer1>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   5 D-type flip-flop(s).
+Unit <inputconditioner> synthesized.
+
+
+Synthesizing Unit <finitestatemachine>.
+    Related source file is "spimemory.v".
+WARNING:Xst:1780 - Signal <tempcounter> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+    Found 1-bit register for signal <miso_buff>.
+    Found 7-bit register for signal <stateout<6:0>>.
+    Found 1-bit register for signal <ADDR_we>.
+    Found 1-bit register for signal <SR_we>.
+    Found 1-bit register for signal <DM_we>.
+    Found 4-bit register for signal <count>.
+    Found 4-bit comparator greatequal for signal <count$cmp_ge0000> created at line 154.
+    Found 4-bit comparator less for signal <count$cmp_lt0000> created at line 154.
+    Found 4-bit adder for signal <count$share0000>.
+    Found 4-bit register for signal <state>.
+    Summary:
+	inferred  19 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred   2 Comparator(s).
+Unit <finitestatemachine> synthesized.
+
+
+Synthesizing Unit <shiftregister>.
+    Related source file is "shiftregister.v".
+WARNING:Xst:647 - Input <faultinjector> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 8-bit register for signal <shiftregistermem>.
+    Summary:
+	inferred   8 D-type flip-flop(s).
+Unit <shiftregister> synthesized.
+
+
+Synthesizing Unit <AddressLatch>.
+    Related source file is "spimemory.v".
+    Found 8-bit register for signal <address>.
+    Summary:
+	inferred   8 D-type flip-flop(s).
+Unit <AddressLatch> synthesized.
+
+
+Synthesizing Unit <datamemory>.
+    Related source file is "spimemory.v".
+WARNING:Xst:647 - Input <q<0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:646 - Signal <addr<6:3>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 8x128-bit single-port RAM <Mram_memoryvals> for signal <memoryvals>.
+    Found 8-bit register for signal <d_out>.
+    Found 7-bit register for signal <addr>.
+    Summary:
+	inferred   1 RAM(s).
+	inferred  15 D-type flip-flop(s).
+Unit <datamemory> synthesized.
+
+
+Synthesizing Unit <dff>.
+    Related source file is "spimemory.v".
+    Found 1-bit register for signal <q>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+Unit <dff> synthesized.
+
+
+Synthesizing Unit <tristatebuffer>.
+    Related source file is "spimemory.v".
+    Found 1-bit tristate buffer for signal <tri_output>.
+    Summary:
+	inferred   1 Tristate(s).
+Unit <tristatebuffer> synthesized.
+
+
+Synthesizing Unit <spiMemory>.
+    Related source file is "spimemory.v".
+WARNING:Xst:647 - Input <faultinjector_pin> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1780 - Signal <tri_output> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <sclk_conditioned> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <q> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <mosi_positiveedge> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <mosi_negativeedge> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <fault_pin> is used but never assigned. This sourceless signal will be automatically connected to value 0.
+WARNING:Xst:646 - Signal <fault_negativeedge> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <fault_conditioned> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <d_outshiftreg> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <d_in> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <cs_positiveedge> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <cs_negativeedge> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <spiMemory> synthesized.
+
+
+Synthesizing Unit <TopLevelSPIMemory>.
+    Related source file is "TopLevelSPIMemory.v".
+Unit <TopLevelSPIMemory> synthesized.
+
+
+Synthesizing Unit <mp2>.
+    Related source file is "mp2.v".
+WARNING:Xst:647 - Input <btn> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <sw<7:1>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1780 - Signal <testled> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <serial_out> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <parallel_in> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <mp2> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 8x128-bit single-port RAM                             : 1
+# Adders/Subtractors                                   : 1
+ 4-bit adder                                           : 1
+# Counters                                             : 4
+ 3-bit up counter                                      : 4
+# Registers                                            : 45
+ 1-bit register                                        : 40
+ 4-bit register                                        : 2
+ 7-bit register                                        : 1
+ 8-bit register                                        : 2
+# Comparators                                          : 2
+ 4-bit comparator greatequal                           : 1
+ 4-bit comparator less                                 : 1
+# Tristates                                            : 1
+ 1-bit tristate buffer                                 : 1
+# Xors                                                 : 4
+ 1-bit xor2                                            : 4
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:1290 - Hierarchical block <fault_cond> is unconnected in block <spimemory>.
+   It will be removed from the design.
+WARNING:Xst:1293 - FF/Latch <state_3> has a constant value of 0 in block <fsm>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <address_0> of sequential type is unconnected in block <addr_latch>.
+WARNING:Xst:2677 - Node <address_4> of sequential type is unconnected in block <addr_latch>.
+WARNING:Xst:2677 - Node <address_5> of sequential type is unconnected in block <addr_latch>.
+WARNING:Xst:2677 - Node <address_6> of sequential type is unconnected in block <addr_latch>.
+WARNING:Xst:2677 - Node <address_7> of sequential type is unconnected in block <addr_latch>.
+WARNING:Xst:2677 - Node <addr_3> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <addr_4> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <addr_5> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <addr_6> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_8> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_9> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_10> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_11> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_12> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_13> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_14> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_15> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_16> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_17> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_18> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_19> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_20> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_21> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_22> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_23> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_24> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_25> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_26> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_27> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_28> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_29> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_30> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_31> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_32> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_33> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_34> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_35> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_36> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_37> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_38> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_39> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_40> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_41> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_42> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_43> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_44> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_45> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_46> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_47> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_48> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_49> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_50> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_51> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_52> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_53> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_54> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_55> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_56> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_57> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_58> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_59> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_60> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_61> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_62> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_63> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_64> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_65> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_66> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_67> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_68> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_69> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_70> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_71> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_72> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_73> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_74> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_75> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_76> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_77> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_78> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_79> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_80> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_81> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_82> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_83> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_84> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_85> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_86> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_87> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_88> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_89> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_90> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_91> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_92> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_93> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_94> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_95> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_96> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_97> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_98> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_99> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_100> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_101> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_102> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_103> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_104> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_105> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_106> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_107> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_108> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_109> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_110> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_111> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_112> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_113> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_114> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_115> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_116> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_117> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_118> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_119> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_120> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_121> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_122> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_123> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_124> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_125> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_126> of sequential type is unconnected in block <data_mem>.
+WARNING:Xst:2677 - Node <d_out_varindex0000_127> of sequential type is unconnected in block <data_mem>.
+
+Synthesizing (advanced) Unit <datamemory>.
+INFO:Xst:3226 - The RAM <Mram_memoryvals> will be implemented as a BLOCK RAM, absorbing the following register(s): <d_out_varindex0000>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 8-word x 128-bit                    |          |
+    |     mode           | no-change                           |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <DM_we>         | high     |
+    |     addrA          | connected to signal <addr>          |          |
+    |     diA            | connected to signal <d_in>          |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <datamemory> synthesized (advanced).
+WARNING:Xst:2677 - Node <addr_3> of sequential type is unconnected in block <datamemory>.
+WARNING:Xst:2677 - Node <addr_4> of sequential type is unconnected in block <datamemory>.
+WARNING:Xst:2677 - Node <addr_5> of sequential type is unconnected in block <datamemory>.
+WARNING:Xst:2677 - Node <addr_6> of sequential type is unconnected in block <datamemory>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 8x128-bit single-port block RAM                       : 1
+# Adders/Subtractors                                   : 1
+ 4-bit adder                                           : 1
+# Counters                                             : 4
+ 3-bit up counter                                      : 4
+# Registers                                            : 59
+ Flip-Flops                                            : 59
+# Comparators                                          : 2
+ 4-bit comparator greatequal                           : 1
+ 4-bit comparator less                                 : 1
+# Xors                                                 : 4
+ 1-bit xor2                                            : 4
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1293 - FF/Latch <state_3> has a constant value of 0 in block <finitestatemachine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <data_mem/Mram_memoryvals2> of sequential type is unconnected in block <spiMemory>.
+WARNING:Xst:2677 - Node <data_mem/Mram_memoryvals3> of sequential type is unconnected in block <spiMemory>.
+WARNING:Xst:2677 - Node <data_mem/Mram_memoryvals4> of sequential type is unconnected in block <spiMemory>.
+
+Optimizing unit <mp2> ...
+
+Optimizing unit <inputconditioner> ...
+
+Optimizing unit <finitestatemachine> ...
+WARNING:Xst:1293 - FF/Latch <count_3> has a constant value of 0 in block <finitestatemachine>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <count_3> has a constant value of 0 in block <finitestatemachine>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <shiftregister> ...
+
+Optimizing unit <AddressLatch> ...
+WARNING:Xst:2677 - Node <spi_mem_bringup/spimemory/mosi_cond/negativeedge> of sequential type is unconnected in block <mp2>.
+WARNING:Xst:2677 - Node <spi_mem_bringup/spimemory/mosi_cond/positiveedge> of sequential type is unconnected in block <mp2>.
+WARNING:Xst:2677 - Node <spi_mem_bringup/spimemory/cs_cond/negativeedge> of sequential type is unconnected in block <mp2>.
+WARNING:Xst:2677 - Node <spi_mem_bringup/spimemory/cs_cond/positiveedge> of sequential type is unconnected in block <mp2>.
+WARNING:Xst:2677 - Node <spi_mem_bringup/spimemory/fault_cond/counter_2> of sequential type is unconnected in block <mp2>.
+WARNING:Xst:2677 - Node <spi_mem_bringup/spimemory/fault_cond/counter_1> of sequential type is unconnected in block <mp2>.
+WARNING:Xst:2677 - Node <spi_mem_bringup/spimemory/fault_cond/counter_0> of sequential type is unconnected in block <mp2>.
+WARNING:Xst:2677 - Node <spi_mem_bringup/spimemory/fault_cond/conditioned> of sequential type is unconnected in block <mp2>.
+WARNING:Xst:2677 - Node <spi_mem_bringup/spimemory/fault_cond/synchronizer1> of sequential type is unconnected in block <mp2>.
+WARNING:Xst:2677 - Node <spi_mem_bringup/spimemory/fault_cond/synchronizer0> of sequential type is unconnected in block <mp2>.
+WARNING:Xst:2677 - Node <spi_mem_bringup/spimemory/fault_cond/negativeedge> of sequential type is unconnected in block <mp2>.
+WARNING:Xst:2677 - Node <spi_mem_bringup/spimemory/fault_cond/positiveedge> of sequential type is unconnected in block <mp2>.
+WARNING:Xst:2677 - Node <spi_mem_bringup/spimemory/addr_latch/address_7> of sequential type is unconnected in block <mp2>.
+WARNING:Xst:2677 - Node <spi_mem_bringup/spimemory/addr_latch/address_6> of sequential type is unconnected in block <mp2>.
+WARNING:Xst:2677 - Node <spi_mem_bringup/spimemory/addr_latch/address_5> of sequential type is unconnected in block <mp2>.
+WARNING:Xst:2677 - Node <spi_mem_bringup/spimemory/addr_latch/address_4> of sequential type is unconnected in block <mp2>.
+WARNING:Xst:2677 - Node <spi_mem_bringup/spimemory/addr_latch/address_0> of sequential type is unconnected in block <mp2>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block mp2, actual ratio is 0.
+
+Final Macro Processing ...
+
+Processing Unit <mp2> :
+	Found 2-bit shift register for signal <spi_mem_bringup/spimemory/mosi_cond/synchronizer1>.
+	Found 2-bit shift register for signal <spi_mem_bringup/spimemory/sclk_cond/synchronizer1>.
+	Found 2-bit shift register for signal <spi_mem_bringup/spimemory/cs_cond/synchronizer1>.
+Unit <mp2> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 46
+ Flip-Flops                                            : 46
+# Shift Registers                                      : 3
+ 2-bit shift register                                  : 3
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : mp2.ngr
+Top Level Output File Name         : mp2
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 29
+
+Cell Usage :
+# BELS                             : 72
+#      GND                         : 2
+#      INV                         : 4
+#      LUT2                        : 5
+#      LUT2_D                      : 1
+#      LUT3                        : 28
+#      LUT3_D                      : 3
+#      LUT3_L                      : 2
+#      LUT4                        : 21
+#      LUT4_D                      : 1
+#      LUT4_L                      : 1
+#      MUXF5                       : 3
+#      VCC                         : 1
+# FlipFlops/Latches                : 49
+#      FD                          : 6
+#      FDE                         : 32
+#      FDR                         : 9
+#      FDRE                        : 2
+# RAMS                             : 1
+#      RAMB16                      : 1
+# Shift Registers                  : 3
+#      SRL16                       : 3
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 16
+#      IBUF                        : 4
+#      OBUF                        : 11
+#      OBUFT                       : 1
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s1000ft256-5 
+
+ Number of Slices:                       36  out of   7680     0%  
+ Number of Slice Flip Flops:             49  out of  15360     0%  
+ Number of 4 input LUTs:                 69  out of  15360     0%  
+    Number used as logic:                66
+    Number used as Shift registers:       3
+ Number of IOs:                          29
+ Number of bonded IOBs:                  17  out of    173     9%  
+ Number of BRAMs:                         1  out of     24     4%  
+ Number of GCLKs:                         1  out of      8    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 53    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 5.011ns (Maximum Frequency: 199.567MHz)
+   Minimum input arrival time before clock: 1.778ns
+   Maximum output required time after clock: 7.587ns
+   Maximum combinational path delay: 6.305ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 5.011ns (frequency: 199.567MHz)
+  Total number of paths / destination ports: 324 / 103
+-------------------------------------------------------------------------
+Delay:               5.011ns (Levels of Logic = 2)
+  Source:            spi_mem_bringup/spimemory/fsm/count_2 (FF)
+  Destination:       spi_mem_bringup/spimemory/fsm/state_2 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: spi_mem_bringup/spimemory/fsm/count_2 to spi_mem_bringup/spimemory/fsm/state_2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              3   0.626   1.066  spi_mem_bringup/spimemory/fsm/count_2 (spi_mem_bringup/spimemory/fsm/count_2)
+     LUT3:I0->O            3   0.479   1.066  spi_mem_bringup/spimemory/fsm/state_mux0000<2>41 (spi_mem_bringup/spimemory/fsm/state_mux0000<2>_bdd5)
+     LUT4:I0->O            3   0.479   0.771  spi_mem_bringup/spimemory/fsm/state_not00021 (spi_mem_bringup/spimemory/fsm/state_not0002)
+     FDE:CE                    0.524          spi_mem_bringup/spimemory/fsm/state_0
+    ----------------------------------------
+    Total                      5.011ns (2.108ns logic, 2.903ns route)
+                                       (42.1% logic, 57.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 3 / 3
+-------------------------------------------------------------------------
+Offset:              1.778ns (Levels of Logic = 1)
+  Source:            gpioBank2<1> (PAD)
+  Destination:       spi_mem_bringup/spimemory/cs_cond/Mshreg_synchronizer1 (FF)
+  Destination Clock: clk rising
+
+  Data Path: gpioBank2<1> to spi_mem_bringup/spimemory/cs_cond/Mshreg_synchronizer1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   0.715   0.681  gpioBank2_1_IBUF (gpioBank2_1_IBUF)
+     SRL16:D                   0.382          spi_mem_bringup/spimemory/cs_cond/Mshreg_synchronizer1
+    ----------------------------------------
+    Total                      1.778ns (1.097ns logic, 0.681ns route)
+                                       (61.7% logic, 38.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 9 / 8
+-------------------------------------------------------------------------
+Offset:              7.587ns (Levels of Logic = 2)
+  Source:            spi_mem_bringup/spimemory/fsm/miso_buff (FF)
+  Destination:       gpioBank1<0> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: spi_mem_bringup/spimemory/fsm/miso_buff to gpioBank1<0>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              1   0.626   0.681  spi_mem_bringup/spimemory/fsm/miso_buff (spi_mem_bringup/spimemory/fsm/miso_buff)
+     INV:I->O              1   0.479   0.681  spi_mem_bringup/spimemory/tsb/tri_enable_inv1_INV_0 (spi_mem_bringup/spimemory/tsb/tri_enable_inv)
+     OBUFT:T->O                5.120          gpioBank1_0_OBUFT (gpioBank1<0>)
+    ----------------------------------------
+    Total                      7.587ns (6.225ns logic, 1.362ns route)
+                                       (82.1% logic, 17.9% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Delay:               6.305ns (Levels of Logic = 2)
+  Source:            gpioBank2<3> (PAD)
+  Destination:       gpioBank1<1> (PAD)
+
+  Data Path: gpioBank2<3> to gpioBank1<1>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   0.715   0.681  gpioBank2_3_IBUF (gpioBank1_1_OBUF)
+     OBUF:I->O                 4.909          gpioBank1_1_OBUF (gpioBank1<1>)
+    ----------------------------------------
+    Total                      6.305ns (5.624ns logic, 0.681ns route)
+                                       (89.2% logic, 10.8% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 4.59 secs
+ 
+--> 
+
+Total memory usage is 265408 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  181 (   0 filtered)
+Number of infos    :    5 (   0 filtered)
+
